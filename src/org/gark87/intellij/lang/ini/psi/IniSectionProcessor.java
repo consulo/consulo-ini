@@ -18,39 +18,49 @@ package org.gark87.intellij.lang.ini.psi;
 
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.search.PsiElementProcessor;
-import com.intellij.psi.tree.TokenSet;
-import org.gark87.intellij.lang.ini.parsing.IniTokenTypes;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
-public class IniSectionProcessor implements PsiElementProcessor {
-    private final SectionImpl[] needle;
-    private SectionImpl result;
+public class IniSectionProcessor implements PsiElementProcessor
+{
+	private final SectionImpl[] needle;
+	private SectionImpl result;
 
-    public IniSectionProcessor(SectionImpl element) {
-        this.needle = element.getSubSections();
-    }
+	public IniSectionProcessor(SectionImpl element)
+	{
+		this.needle = element.getSubSections();
+	}
 
-    public boolean execute(PsiElement element) {
-        if (element instanceof Section) {
-            Section name = (Section) element;
-            SectionImpl[] a = name.getSubSections();
-            if (a == null)
-                return true;
-            if (a.length != needle.length)
-                return true;
-            for (int i = 0; i < a.length; i++) {
-                if (!a[i].getText().equals(needle[i].getText()))
-                    return true;
-            }
-            result = a[0];
-            return false;
-        }
-        return true;
-    }
+	public boolean execute(PsiElement element)
+	{
+		if(element instanceof Section)
+		{
+			Section name = (Section) element;
+			SectionImpl[] a = name.getSubSections();
+			if(a == null)
+			{
+				return true;
+			}
+			if(a.length != needle.length)
+			{
+				return true;
+			}
+			for(int i = 0; i < a.length; i++)
+			{
+				if(!a[i].getText().equals(needle[i].getText()))
+				{
+					return true;
+				}
+			}
+			result = a[0];
+			return false;
+		}
+		return true;
+	}
 
-    public SectionImpl getResult() {
-        return result;
-    }
+	public SectionImpl getResult()
+	{
+		return result;
+	}
 }

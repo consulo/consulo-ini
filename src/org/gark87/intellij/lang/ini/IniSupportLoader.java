@@ -16,33 +16,37 @@
 
 package org.gark87.intellij.lang.ini;
 
+import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.openapi.fileTypes.FileTypeManager;
 import com.intellij.openapi.fileTypes.LanguageFileType;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
-public class IniSupportLoader implements ApplicationComponent {
-    public static final LanguageFileType INI = new IniFileType();
+public class IniSupportLoader implements ApplicationComponent
+{
+	public static final LanguageFileType INI = new IniFileType();
 
-    @NotNull
-    public String getComponentName() {
-        return "Ini support loader";
-    }
+	@NotNull
+	public String getComponentName()
+	{
+		return "Ini support loader";
+	}
 
-    public void initComponent() {
-        ApplicationManager.getApplication().runWriteAction(
-                new Runnable() {
-                    public void run() {
-                        FileTypeManager.getInstance().registerFileType(INI, "ini");
-                    }
-                }
-        );
-    }
+	public void initComponent()
+	{
+		ApplicationManager.getApplication().runWriteAction(new Runnable()
+		{
+			public void run()
+			{
+				FileTypeManager.getInstance().registerFileType(INI, "ini");
+			}
+		});
+	}
 
-    public void disposeComponent() {
-    }
+	public void disposeComponent()
+	{
+	}
 }

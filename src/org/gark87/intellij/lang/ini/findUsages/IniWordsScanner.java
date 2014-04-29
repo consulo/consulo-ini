@@ -16,15 +16,17 @@
 
 package org.gark87.intellij.lang.ini.findUsages;
 
-import com.intellij.lang.cacheBuilder.DefaultWordsScanner;
 import org.gark87.intellij.lang.ini.parsing.IniLexer;
 import org.gark87.intellij.lang.ini.parsing.IniTokenTypes;
+import com.intellij.lang.cacheBuilder.DefaultWordsScanner;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
-public class IniWordsScanner extends DefaultWordsScanner {
-    public IniWordsScanner() {
-        super(new IniLexer(), IniTokenTypes.SECTIONS, IniTokenTypes.COMMENTS, IniTokenTypes.STRINGS);
-    }
+public class IniWordsScanner extends DefaultWordsScanner
+{
+	public IniWordsScanner()
+	{
+		super(new IniLexer(), IniTokenTypes.SECTIONS, IniTokenTypes.COMMENTS, IniTokenTypes.STRINGS);
+	}
 }

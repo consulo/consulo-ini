@@ -16,37 +16,45 @@
 
 package org.gark87.intellij.lang.ini;
 
-import com.intellij.CommonBundle;
-import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.PropertyKey;
-
 import java.lang.ref.Reference;
 import java.lang.ref.SoftReference;
 import java.util.ResourceBundle;
 
+import org.jetbrains.annotations.NonNls;
+import org.jetbrains.annotations.PropertyKey;
+import com.intellij.CommonBundle;
+
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
-public class IniBundle {
-    private static Reference<ResourceBundle> ourBundle;
+public class IniBundle
+{
+	private static Reference<ResourceBundle> ourBundle;
 
-    @NonNls
-    protected static final String PATH_TO_BUNDLE = "messages.IniBundle";
+	@NonNls
+	protected static final String PATH_TO_BUNDLE = "messages.IniBundle";
 
-    private IniBundle() {
-    }
+	private IniBundle()
+	{
+	}
 
-    public static String message(@PropertyKey(resourceBundle = PATH_TO_BUNDLE) String key, Object... params) {
-        return CommonBundle.message(getBundle(), key, params);
-    }
+	public static String message(@PropertyKey(resourceBundle = PATH_TO_BUNDLE) String key, Object... params)
+	{
+		return CommonBundle.message(getBundle(), key, params);
+	}
 
-    private static ResourceBundle getBundle() {
-        ResourceBundle bundle = null;
-        if (ourBundle != null) bundle = ourBundle.get();
-        if (bundle == null) {
-            bundle = ResourceBundle.getBundle(PATH_TO_BUNDLE);
-            ourBundle = new SoftReference<ResourceBundle>(bundle);
-        }
-        return bundle;
-    }
+	private static ResourceBundle getBundle()
+	{
+		ResourceBundle bundle = null;
+		if(ourBundle != null)
+		{
+			bundle = ourBundle.get();
+		}
+		if(bundle == null)
+		{
+			bundle = ResourceBundle.getBundle(PATH_TO_BUNDLE);
+			ourBundle = new SoftReference<ResourceBundle>(bundle);
+		}
+		return bundle;
+	}
 }

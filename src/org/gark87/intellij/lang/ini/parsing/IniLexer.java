@@ -16,15 +16,17 @@
 
 package org.gark87.intellij.lang.ini.parsing;
 
-import com.intellij.lexer.FlexAdapter;
-
 import java.io.Reader;
+
+import com.intellij.lexer.FlexAdapter;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
-public class IniLexer extends FlexAdapter {
-    public IniLexer() {
-        super(new _IniLexer((Reader) null));
-    }
+public class IniLexer extends FlexAdapter
+{
+	public IniLexer()
+	{
+		super(new _IniLexer((Reader) null));
+	}
 }

@@ -23,24 +23,25 @@ import com.intellij.psi.tree.TokenSet;
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
-public interface IniTokenTypes {
-    IElementType WHITE_SPACE = TokenType.WHITE_SPACE;
-    IElementType BAD_CHARACTER = TokenType.BAD_CHARACTER;
+public interface IniTokenTypes
+{
+	IElementType WHITE_SPACE = TokenType.WHITE_SPACE;
+	IElementType BAD_CHARACTER = TokenType.BAD_CHARACTER;
 
-    IElementType END_OF_LINE_COMMENT = new IniElementType("END_OF_LINE_COMMENT");
-    IElementType KEY_CHARACTERS = new IniElementType("KEY_CHARACTERS");
-    IElementType VALUE_CHARACTERS = new IniElementType("VALUE_CHARACTERS");
-    IElementType KEY_VALUE_SEPARATOR = new IniElementType("KEY_VALUE_SEPARATOR");
-    IElementType EOL = new IniElementType("EOL");
-    IElementType SECTION = new IniElementType("SECTION");
-    IElementType QUOTED_STRING = new IniElementType("QUOTED_STRING");
-    IElementType RBRACKET = new IniElementType("RBRACKET");
-    IElementType LBRACKET = new IniElementType("LBRACKET");
-    IElementType SECTION_SEPARATOR = new IniElementType("SECTION_SEPARATOR");
+	IElementType END_OF_LINE_COMMENT = new IniElementType("END_OF_LINE_COMMENT");
+	IElementType KEY_CHARACTERS = new IniElementType("KEY_CHARACTERS");
+	IElementType VALUE_CHARACTERS = new IniElementType("VALUE_CHARACTERS");
+	IElementType KEY_VALUE_SEPARATOR = new IniElementType("KEY_VALUE_SEPARATOR");
+	IElementType EOL = new IniElementType("EOL");
+	IElementType SECTION = new IniElementType("SECTION");
+	IElementType QUOTED_STRING = new IniElementType("QUOTED_STRING");
+	IElementType RBRACKET = new IniElementType("RBRACKET");
+	IElementType LBRACKET = new IniElementType("LBRACKET");
+	IElementType SECTION_SEPARATOR = new IniElementType("SECTION_SEPARATOR");
 
-    TokenSet COMMENTS = TokenSet.create(END_OF_LINE_COMMENT);
-    TokenSet STRINGS = TokenSet.create(IniTokenTypes.QUOTED_STRING);
-    TokenSet WHITESPACES = TokenSet.create(WHITE_SPACE);
-    TokenSet SECTIONS = TokenSet.create(IniTokenTypes.SECTION);
+	TokenSet COMMENTS = TokenSet.create(END_OF_LINE_COMMENT);
+	TokenSet STRINGS = TokenSet.create(IniTokenTypes.QUOTED_STRING);
+	TokenSet WHITESPACES = TokenSet.create(WHITE_SPACE);
+	TokenSet SECTIONS = TokenSet.create(IniTokenTypes.SECTION);
 
 }

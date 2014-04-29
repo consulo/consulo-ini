@@ -16,14 +16,16 @@
 
 package org.gark87.intellij.lang.ini;
 
-import com.intellij.lexer.LayeredLexer;
 import org.gark87.intellij.lang.ini.parsing.IniLexer;
+import com.intellij.lexer.LayeredLexer;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
-public class IniHighlightingLexer extends LayeredLexer {
-    public IniHighlightingLexer() {
-        super(new IniLexer());
-    }
+public class IniHighlightingLexer extends LayeredLexer
+{
+	public IniHighlightingLexer()
+	{
+		super(new IniLexer());
+	}
 }

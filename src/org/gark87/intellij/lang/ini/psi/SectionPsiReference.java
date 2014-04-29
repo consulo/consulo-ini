@@ -16,32 +16,38 @@
 
 package org.gark87.intellij.lang.ini.psi;
 
+import org.jetbrains.annotations.NotNull;
 import com.intellij.psi.PsiReferenceBase;
 import com.intellij.psi.util.PsiTreeUtil;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
-public class SectionPsiReference extends PsiReferenceBase<SectionImpl> {
-    public SectionPsiReference(@NotNull SectionImpl element) {
-        super(element);
-        psiElement = element;
-    }
+public class SectionPsiReference extends PsiReferenceBase<SectionImpl>
+{
+	public SectionPsiReference(@NotNull SectionImpl element)
+	{
+		super(element);
+		psiElement = element;
+	}
 
-    private SectionImpl psiElement;
+	private SectionImpl psiElement;
 
-    public SectionImpl resolve() {
-        IniSectionProcessor processor = new IniSectionProcessor(psiElement);
-        boolean result = PsiTreeUtil.processElements(psiElement.getContainingFile(), processor);
-        if (!result)
-            return processor.getResult();
-        return null;
-    }
+	public SectionImpl resolve()
+	{
+		IniSectionProcessor processor = new IniSectionProcessor(psiElement);
+		boolean result = PsiTreeUtil.processElements(psiElement.getContainingFile(), processor);
+		if(!result)
+		{
+			return processor.getResult();
+		}
+		return null;
+	}
 
-    @NotNull
-    public Object[] getVariants() {
-        return new Object[0];
-    }
+	@NotNull
+	public Object[] getVariants()
+	{
+		return new Object[0];
+	}
 }
 

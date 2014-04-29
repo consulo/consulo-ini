@@ -16,20 +16,21 @@
 
 package org.gark87.intellij.lang.ini;
 
+import org.gark87.intellij.lang.ini.psi.SectionImpl;
 import com.intellij.openapi.util.TextRange;
 import com.intellij.psi.AbstractElementManipulator;
 import com.intellij.util.IncorrectOperationException;
-import org.gark87.intellij.lang.ini.psi.SectionImpl;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
-public class SectionManipulator extends AbstractElementManipulator<SectionImpl> {
-    public SectionImpl handleContentChange(SectionImpl element, TextRange range, String newContent)
-            throws IncorrectOperationException {
-        final String oldText = element.getText();
-        String newText = oldText.substring(0, range.getStartOffset()) + newContent + oldText.substring(range.getEndOffset());
-        return (SectionImpl) element.replaceWithText(newText);
-    }
+public class SectionManipulator extends AbstractElementManipulator<SectionImpl>
+{
+	public SectionImpl handleContentChange(SectionImpl element, TextRange range, String newContent) throws IncorrectOperationException
+	{
+		final String oldText = element.getText();
+		String newText = oldText.substring(0, range.getStartOffset()) + newContent + oldText.substring(range.getEndOffset());
+		return (SectionImpl) element.replaceWithText(newText);
+	}
 }
 

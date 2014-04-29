@@ -16,19 +16,20 @@
 
 package org.gark87.intellij.lang.ini.parsing;
 
+import org.gark87.intellij.lang.ini.IniLanguage;
 import com.intellij.lang.Language;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.tree.IFileElementType;
 import com.intellij.psi.tree.IStubFileElementType;
-import org.gark87.intellij.lang.ini.IniLanguage;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
-public interface IniElementTypes {
-    IniLanguage LANG = Language.findInstance(IniLanguage.class);
+public interface IniElementTypes
+{
+	IniLanguage LANG = Language.findInstance(IniLanguage.class);
 
-    IFileElementType FILE = new IStubFileElementType(LANG);
-    IElementType PROPERTY = new IniElementType("<PROPERTY>");
-    IElementType SECTION = new IniElementType("<SECTION>");
+	IFileElementType FILE = new IStubFileElementType(LANG);
+	IElementType PROPERTY = new IniElementType("<PROPERTY>");
+	IElementType SECTION = new IniElementType("<SECTION>");
 }

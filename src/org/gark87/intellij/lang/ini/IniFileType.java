@@ -16,38 +16,44 @@
 
 package org.gark87.intellij.lang.ini;
 
+import javax.swing.Icon;
+
+import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.fileTypes.LanguageFileType;
 import com.intellij.openapi.util.IconLoader;
-import org.jetbrains.annotations.NotNull;
-
-import javax.swing.*;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
-public class IniFileType extends LanguageFileType {
-    private static final Icon ICON = IconLoader.getIcon("/icons/ini.png");
+public class IniFileType extends LanguageFileType
+{
+	private static final Icon ICON = IconLoader.getIcon("/icons/ini.png");
 
-    public IniFileType() {
-        super(new org.gark87.intellij.lang.ini.IniLanguage());
-    }
+	public IniFileType()
+	{
+		super(new org.gark87.intellij.lang.ini.IniLanguage());
+	}
 
-    @NotNull
-    public String getName() {
-        return "INI";
-    }
+	@NotNull
+	public String getName()
+	{
+		return "INI";
+	}
 
-    @NotNull
-    public String getDescription() {
-        return "INI";
-    }
+	@NotNull
+	public String getDescription()
+	{
+		return "INI";
+	}
 
-    @NotNull
-    public String getDefaultExtension() {
-        return "ini";
-    }
+	@NotNull
+	public String getDefaultExtension()
+	{
+		return "ini";
+	}
 
-    public Icon getIcon() {
-        return ICON;
-    }
+	public Icon getIcon()
+	{
+		return ICON;
+	}
 }

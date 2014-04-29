@@ -16,43 +16,50 @@
 
 package org.gark87.intellij.lang.ini.findUsages;
 
+import org.gark87.intellij.lang.ini.psi.SectionImpl;
+import org.jetbrains.annotations.NotNull;
 import com.intellij.find.impl.HelpID;
 import com.intellij.lang.cacheBuilder.WordsScanner;
 import com.intellij.lang.findUsages.FindUsagesProvider;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiNamedElement;
-import org.gark87.intellij.lang.ini.psi.SectionImpl;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
-public class IniFindUsagesProvider implements FindUsagesProvider {
-    public WordsScanner getWordsScanner() {
-        return new IniWordsScanner();
-    }
+public class IniFindUsagesProvider implements FindUsagesProvider
+{
+	public WordsScanner getWordsScanner()
+	{
+		return new IniWordsScanner();
+	}
 
-    public boolean canFindUsagesFor(@NotNull PsiElement psiElement) {
-        return psiElement instanceof SectionImpl;
-    }
+	public boolean canFindUsagesFor(@NotNull PsiElement psiElement)
+	{
+		return psiElement instanceof SectionImpl;
+	}
 
-    public String getHelpId(@NotNull PsiElement psiElement) {
-        return HelpID.FIND_OTHER_USAGES;
-    }
+	public String getHelpId(@NotNull PsiElement psiElement)
+	{
+		return HelpID.FIND_OTHER_USAGES;
+	}
 
-    @NotNull
-    public String getType(@NotNull PsiElement psiElement) {
-        return "section";
-    }
+	@NotNull
+	public String getType(@NotNull PsiElement psiElement)
+	{
+		return "section";
+	}
 
-    @NotNull
-    public String getDescriptiveName(@NotNull PsiElement psiElement) {
-        String name = ((PsiNamedElement) psiElement).getName();
-        return name == null ? "" : name;
-    }
+	@NotNull
+	public String getDescriptiveName(@NotNull PsiElement psiElement)
+	{
+		String name = ((PsiNamedElement) psiElement).getName();
+		return name == null ? "" : name;
+	}
 
-    @NotNull
-    public String getNodeText(@NotNull PsiElement psiElement, boolean b) {
-        return getDescriptiveName(psiElement);
-    }
+	@NotNull
+	public String getNodeText(@NotNull PsiElement psiElement, boolean b)
+	{
+		return getDescriptiveName(psiElement);
+	}
 }

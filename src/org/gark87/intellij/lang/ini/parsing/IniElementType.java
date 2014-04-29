@@ -16,22 +16,25 @@
 
 package org.gark87.intellij.lang.ini.parsing;
 
-import com.intellij.psi.tree.IElementType;
 import org.gark87.intellij.lang.ini.IniSupportLoader;
 import org.jetbrains.annotations.NonNls;
+import com.intellij.psi.tree.IElementType;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
-public class IniElementType extends IElementType {
-    public IniElementType(@NonNls String debugName) {
-        super(debugName, IniSupportLoader.INI.getLanguage());
-    }
+public class IniElementType extends IElementType
+{
+	public IniElementType(@NonNls String debugName)
+	{
+		super(debugName, IniSupportLoader.INI.getLanguage());
+	}
 
-    @SuppressWarnings({"HardCodedStringLiteral"})
-    public String toString() {
-        return "Ini:" + super.toString();
-    }
+	@SuppressWarnings({"HardCodedStringLiteral"})
+	public String toString()
+	{
+		return "Ini:" + super.toString();
+	}
 
 }
 

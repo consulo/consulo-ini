@@ -16,66 +16,76 @@
 
 package org.gark87.intellij.lang.ini;
 
+import java.util.Map;
+
+import javax.swing.Icon;
+
+import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.fileTypes.SyntaxHighlighter;
 import com.intellij.openapi.options.colors.AttributesDescriptor;
 import com.intellij.openapi.options.colors.ColorDescriptor;
 import com.intellij.openapi.options.colors.ColorSettingsPage;
-import org.jetbrains.annotations.NotNull;
-
-import javax.swing.*;
-import java.util.Map;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
-public class IniColorsPage implements ColorSettingsPage {
-    private static final AttributesDescriptor[] ATTRS;
+public class IniColorsPage implements ColorSettingsPage
+{
+	private static final AttributesDescriptor[] ATTRS;
 
-    static {
-        ATTRS = new AttributesDescriptor[IniHighlighter.DISPLAY_NAMES.size()];
-        TextAttributesKey[] keys = IniHighlighter.DISPLAY_NAMES.keySet().toArray(
-                new TextAttributesKey[IniHighlighter.DISPLAY_NAMES.keySet().size()]);
-        for (int i = 0; i < keys.length; i++) {
-            TextAttributesKey key = keys[i];
-            String name = IniHighlighter.DISPLAY_NAMES.get(key).getFirst();
-            ATTRS[i] = new AttributesDescriptor(name, key);
-        }
-    }
+	static
+	{
+		ATTRS = new AttributesDescriptor[IniHighlighter.DISPLAY_NAMES.size()];
+		TextAttributesKey[] keys = IniHighlighter.DISPLAY_NAMES.keySet().toArray(new TextAttributesKey[IniHighlighter.DISPLAY_NAMES.keySet().size()]);
+		for(int i = 0; i < keys.length; i++)
+		{
+			TextAttributesKey key = keys[i];
+			String name = IniHighlighter.DISPLAY_NAMES.get(key).getFirst();
+			ATTRS[i] = new AttributesDescriptor(name, key);
+		}
+	}
 
 
-    @NotNull
-    public String getDisplayName() {
-        return "Ini";
-    }
+	@NotNull
+	public String getDisplayName()
+	{
+		return "Ini";
+	}
 
-    public Icon getIcon() {
-        return null;
-    }
+	public Icon getIcon()
+	{
+		return null;
+	}
 
-    @NotNull
-    public AttributesDescriptor[] getAttributeDescriptors() {
-        return ATTRS;
-    }
+	@NotNull
+	public AttributesDescriptor[] getAttributeDescriptors()
+	{
+		return ATTRS;
+	}
 
-    @NotNull
-    public ColorDescriptor[] getColorDescriptors() {
-        return ColorDescriptor.EMPTY_ARRAY;
-    }
+	@NotNull
+	public ColorDescriptor[] getColorDescriptors()
+	{
+		return ColorDescriptor.EMPTY_ARRAY;
+	}
 
-    @NotNull
-    public SyntaxHighlighter getHighlighter() {
-        return new IniHighlighter();
-    }
+	@NotNull
+	public SyntaxHighlighter getHighlighter()
+	{
+		return new IniHighlighter();
+	}
 
-    @NotNull
-    public String getDemoText() {
-        return "; Comment on keys and values\n" +
-                "[section : subsection ]\n" +
-                "key1  = value1 \"quoted string\"";
-    }
+	@NotNull
+	public String getDemoText()
+	{
+		return "; Comment on keys and values\n" +
+				"[section : subsection ]\n" +
+				"key1  = value1 \"quoted string\"";
+	}
 
-    public Map<String, TextAttributesKey> getAdditionalHighlightingTagToDescriptorMap() {
-        return null;
-    }
+	public Map<String, TextAttributesKey> getAdditionalHighlightingTagToDescriptorMap()
+	{
+		return null;
+	}
 }

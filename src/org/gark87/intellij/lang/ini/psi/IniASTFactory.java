@@ -16,29 +16,39 @@
 
 package org.gark87.intellij.lang.ini.psi;
 
-import com.intellij.lang.ASTFactory;
-import com.intellij.psi.impl.source.tree.*;
-import com.intellij.psi.tree.IElementType;
-import com.intellij.psi.tree.IFileElementType;
 import org.gark87.intellij.lang.ini.parsing.IniTokenTypes;
 import org.jetbrains.annotations.Nullable;
+import com.intellij.lang.ASTFactory;
+import com.intellij.psi.impl.source.tree.CompositeElement;
+import com.intellij.psi.impl.source.tree.FileElement;
+import com.intellij.psi.impl.source.tree.LeafElement;
+import com.intellij.psi.impl.source.tree.LeafPsiElement;
+import com.intellij.psi.tree.IElementType;
+import com.intellij.psi.tree.IFileElementType;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
-public class IniASTFactory extends ASTFactory {
-    @Nullable
-    public CompositeElement createComposite(final IElementType type) {
-        if (type instanceof IFileElementType)
-            return new FileElement(type, null);
-        return new CompositeElement(type);
-    }
+public class IniASTFactory extends ASTFactory
+{
+	@Nullable
+	public CompositeElement createComposite(final IElementType type)
+	{
+		if(type instanceof IFileElementType)
+		{
+			return new FileElement(type, null);
+		}
+		return new CompositeElement(type);
+	}
 
-    @Nullable
-    public LeafElement createLeaf(final IElementType type, CharSequence text) {
-        if (type == IniTokenTypes.SECTION)
-            return new SectionImpl(type, text);
-        return new LeafPsiElement(type, text);
-    }
+	@Nullable
+	public LeafElement createLeaf(final IElementType type, CharSequence text)
+	{
+		if(type == IniTokenTypes.SECTION)
+		{
+			return new SectionImpl(type, text);
+		}
+		return new LeafPsiElement(type, text);
+	}
 }
 

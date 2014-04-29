@@ -16,6 +16,10 @@
 
 package org.gark87.intellij.lang.ini.psi;
 
+import java.util.List;
+
+import org.jetbrains.annotations.NonNls;
+import org.jetbrains.annotations.Nullable;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiNamedElement;
 import com.intellij.psi.PsiReference;
@@ -24,41 +28,46 @@ import com.intellij.psi.tree.IElementType;
 import com.intellij.util.ArrayUtil;
 import com.intellij.util.IncorrectOperationException;
 import com.intellij.util.SmartList;
-import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.List;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
-public class SectionImpl extends LeafPsiElement implements PsiNamedElement {
-    public SectionImpl(IElementType type, CharSequence text) {
-        super(type, text);
-    }
+public class SectionImpl extends LeafPsiElement implements PsiNamedElement
+{
+	public SectionImpl(IElementType type, CharSequence text)
+	{
+		super(type, text);
+	}
 
-    @Override
-    public PsiReference getReference() {
-        return new SectionPsiReference(this);
-    }
+	@Override
+	public PsiReference getReference()
+	{
+		return new SectionPsiReference(this);
+	}
 
-    @Nullable
-    public SectionImpl[] getSubSections() {
-        List<SectionImpl> result = new SmartList<SectionImpl>();
-        for (PsiElement child = this; child != null; child = child.getNextSibling()) {
-            if (child instanceof SectionImpl)
-                result.add((SectionImpl) child);
-        }
-        return ArrayUtil.toObjectArray(result, SectionImpl.class);
-    }
+	@Nullable
+	public SectionImpl[] getSubSections()
+	{
+		List<SectionImpl> result = new SmartList<SectionImpl>();
+		for(PsiElement child = this; child != null; child = child.getNextSibling())
+		{
+			if(child instanceof SectionImpl)
+			{
+				result.add((SectionImpl) child);
+			}
+		}
+		return ArrayUtil.toObjectArray(result, SectionImpl.class);
+	}
 
-    @Override
-    public String getName() {
-        return getText();
-    }
+	@Override
+	public String getName()
+	{
+		return getText();
+	}
 
-    public PsiElement setName(@NonNls String s) throws IncorrectOperationException {
-        
-        return this;
-    }
+	public PsiElement setName(@NonNls String s) throws IncorrectOperationException
+	{
+
+		return this;
+	}
 }

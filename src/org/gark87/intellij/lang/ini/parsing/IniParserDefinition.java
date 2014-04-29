@@ -16,6 +16,9 @@
 
 package org.gark87.intellij.lang.ini.parsing;
 
+import org.gark87.intellij.lang.ini.psi.IniFile;
+import org.gark87.intellij.lang.ini.psi.Section;
+import org.jetbrains.annotations.NotNull;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.ParserDefinition;
@@ -28,57 +31,68 @@ import com.intellij.psi.PsiFile;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.tree.IFileElementType;
 import com.intellij.psi.tree.TokenSet;
-import org.gark87.intellij.lang.ini.psi.IniFile;
-import org.gark87.intellij.lang.ini.psi.Section;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
-public class IniParserDefinition implements ParserDefinition {
-    @NotNull
-    public Lexer createLexer(Project project) {
-        return new IniLexer();
-    }
+public class IniParserDefinition implements ParserDefinition
+{
+	@NotNull
+	public Lexer createLexer(Project project)
+	{
+		return new IniLexer();
+	}
 
-    public PsiParser createParser(Project project) {
-        return new IniParser();
-    }
+	public PsiParser createParser(Project project)
+	{
+		return new IniParser();
+	}
 
-    public IFileElementType getFileNodeType() {
-        return IniElementTypes.FILE;
-    }
+	public IFileElementType getFileNodeType()
+	{
+		return IniElementTypes.FILE;
+	}
 
-    @NotNull
-    public TokenSet getWhitespaceTokens() {
-        return IniTokenTypes.WHITESPACES;
-    }
+	@NotNull
+	public TokenSet getWhitespaceTokens()
+	{
+		return IniTokenTypes.WHITESPACES;
+	}
 
-    @NotNull
-    public TokenSet getCommentTokens() {
-        return IniTokenTypes.COMMENTS;
-    }
+	@NotNull
+	public TokenSet getCommentTokens()
+	{
+		return IniTokenTypes.COMMENTS;
+	}
 
-    @NotNull
-    public TokenSet getStringLiteralElements() {
-        return IniTokenTypes.STRINGS;
-    }
+	@NotNull
+	public TokenSet getStringLiteralElements()
+	{
+		return IniTokenTypes.STRINGS;
+	}
 
-    @NotNull
-    public PsiElement createElement(ASTNode node) {
-        final IElementType type = node.getElementType();     
-        if (type == IniElementTypes.SECTION)
-            return new Section(node);
-        return new ASTWrapperPsiElement(node);
-    }
+	@NotNull
+	public PsiElement createElement(ASTNode node)
+	{
+		final IElementType type = node.getElementType();
+		if(type == IniElementTypes.SECTION)
+		{
+			return new Section(node);
+		}
+		return new ASTWrapperPsiElement(node);
+	}
 
-    public PsiFile createFile(FileViewProvider viewProvider) {
-        return new IniFile(viewProvider);
-    }
+	public PsiFile createFile(FileViewProvider viewProvider)
+	{
+		return new IniFile(viewProvider);
+	}
 
-    public SpaceRequirements spaceExistanceTypeBetweenTokens(ASTNode left, ASTNode right) {
-        if (left.getElementType() == IniTokenTypes.END_OF_LINE_COMMENT)
-            return SpaceRequirements.MUST_LINE_BREAK;
-        return SpaceRequirements.MAY;
-    }
+	public SpaceRequirements spaceExistanceTypeBetweenTokens(ASTNode left, ASTNode right)
+	{
+		if(left.getElementType() == IniTokenTypes.END_OF_LINE_COMMENT)
+		{
+			return SpaceRequirements.MUST_LINE_BREAK;
+		}
+		return SpaceRequirements.MAY;
+	}
 }

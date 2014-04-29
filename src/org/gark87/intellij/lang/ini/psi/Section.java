@@ -16,25 +16,29 @@
 
 package org.gark87.intellij.lang.ini.psi;
 
+import org.jetbrains.annotations.NonNls;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.util.PsiTreeUtil;
-import org.jetbrains.annotations.NonNls;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
-public class Section extends IniStubElement {
+public class Section extends IniStubElement
+{
 
-    public Section(ASTNode node) {
-        super(node);
-    }
+	public Section(ASTNode node)
+	{
+		super(node);
+	}
 
-    @NonNls
-    public String toString() {
-        return "Section: " + getText();
-    }
+	@NonNls
+	public String toString()
+	{
+		return "Section: " + getText();
+	}
 
-    public SectionImpl[] getSubSections() {
-        return PsiTreeUtil.getChildrenOfType(this, SectionImpl.class);
-    }
+	public SectionImpl[] getSubSections()
+	{
+		return PsiTreeUtil.getChildrenOfType(this, SectionImpl.class);
+	}
 }
