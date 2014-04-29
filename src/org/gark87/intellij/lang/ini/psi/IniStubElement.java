@@ -21,6 +21,7 @@ import org.jetbrains.annotations.NotNull;
 import com.intellij.extapi.psi.StubBasedPsiElementBase;
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.Language;
+import com.intellij.psi.stubs.IStubElementType;
 import com.intellij.psi.stubs.StubElement;
 
 /**
@@ -31,6 +32,11 @@ public class IniStubElement<T extends StubElement> extends StubBasedPsiElementBa
 	public IniStubElement(@org.jetbrains.annotations.NotNull ASTNode node)
 	{
 		super(node);
+	}
+
+	public IniStubElement(@NotNull T stub, @NotNull IStubElementType nodeType)
+	{
+		super(stub, nodeType);
 	}
 
 	@NotNull

@@ -30,7 +30,7 @@ public class IniParser implements PsiParser
 {
 	@Override
 	@NotNull
-	public ASTNode parse(IElementType root, PsiBuilder builder, LanguageVersion languageVersion)
+	public ASTNode parse(@NotNull IElementType root, @NotNull PsiBuilder builder, @NotNull LanguageVersion languageVersion)
 	{
 		final PsiBuilder.Marker rootMarker = builder.mark();
 		PsiBuilder.Marker sectionMarker = builder.mark();

@@ -29,7 +29,14 @@ public interface IniElementTypes
 {
 	IniLanguage LANG = Language.findInstance(IniLanguage.class);
 
-	IFileElementType FILE = new IStubFileElementType(IniLanguage.INSTANCE);
-	IElementType PROPERTY = new IniElementType("<PROPERTY>");
-	IElementType SECTION = new IniElementType("<SECTION>");
+	IFileElementType FILE = new IStubFileElementType(IniLanguage.INSTANCE)
+	{
+		@Override
+		public int getStubVersion()
+		{
+			return 2;
+		}
+	};
+	IElementType PROPERTY = IniStubTokenTypes.PROPERTY;
+	IElementType SECTION = IniStubTokenTypes.SECTION;
 }

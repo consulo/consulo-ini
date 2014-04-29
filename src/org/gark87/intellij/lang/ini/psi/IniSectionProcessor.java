@@ -35,9 +35,9 @@ public class IniSectionProcessor implements PsiElementProcessor
 	@Override
 	public boolean execute(PsiElement element)
 	{
-		if(element instanceof Section)
+		if(element instanceof IniSection)
 		{
-			Section name = (Section) element;
+			IniSection name = (IniSection) element;
 			SectionImpl[] a = name.getSubSections();
 			if(a == null)
 			{

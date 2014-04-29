@@ -17,7 +17,7 @@
 package org.gark87.intellij.lang.ini.parsing;
 
 import org.gark87.intellij.lang.ini.psi.IniFile;
-import org.gark87.intellij.lang.ini.psi.Section;
+import org.gark87.intellij.lang.ini.psi.stub.elementType.IniStubElementType;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.intellij.lang.ASTNode;
@@ -85,9 +85,9 @@ public class IniParserDefinition implements ParserDefinition
 	public PsiElement createElement(ASTNode node)
 	{
 		final IElementType type = node.getElementType();
-		if(type == IniElementTypes.SECTION)
+		if(type instanceof IniStubElementType)
 		{
-			return new Section(node);
+			return ((IniStubElementType) type).createPsi(node);
 		}
 		return new ASTWrapperPsiElement(node);
 	}

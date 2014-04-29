@@ -16,6 +16,7 @@
 
 package org.gark87.intellij.lang.ini.parsing;
 
+import org.gark87.intellij.lang.ini.IniLanguage;
 import com.intellij.psi.TokenType;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.tree.TokenSet;
@@ -28,16 +29,16 @@ public interface IniTokenTypes
 	IElementType WHITE_SPACE = TokenType.WHITE_SPACE;
 	IElementType BAD_CHARACTER = TokenType.BAD_CHARACTER;
 
-	IElementType END_OF_LINE_COMMENT = new IniElementType("END_OF_LINE_COMMENT");
-	IElementType KEY_CHARACTERS = new IniElementType("KEY_CHARACTERS");
-	IElementType VALUE_CHARACTERS = new IniElementType("VALUE_CHARACTERS");
-	IElementType KEY_VALUE_SEPARATOR = new IniElementType("KEY_VALUE_SEPARATOR");
-	IElementType EOL = new IniElementType("EOL");
-	IElementType SECTION = new IniElementType("SECTION");
-	IElementType QUOTED_STRING = new IniElementType("QUOTED_STRING");
-	IElementType RBRACKET = new IniElementType("RBRACKET");
-	IElementType LBRACKET = new IniElementType("LBRACKET");
-	IElementType SECTION_SEPARATOR = new IniElementType("SECTION_SEPARATOR");
+	IElementType END_OF_LINE_COMMENT = new IElementType("END_OF_LINE_COMMENT", IniLanguage.INSTANCE);
+	IElementType KEY_CHARACTERS = new IElementType("KEY_CHARACTERS", IniLanguage.INSTANCE);
+	IElementType VALUE_CHARACTERS = new IElementType("VALUE_CHARACTERS", IniLanguage.INSTANCE);
+	IElementType KEY_VALUE_SEPARATOR = new IElementType("KEY_VALUE_SEPARATOR", IniLanguage.INSTANCE);
+	IElementType EOL = new IElementType("EOL", IniLanguage.INSTANCE);
+	IElementType SECTION = new IElementType("SECTION", IniLanguage.INSTANCE);
+	IElementType QUOTED_STRING = new IElementType("QUOTED_STRING", IniLanguage.INSTANCE);
+	IElementType RBRACKET = new IElementType("RBRACKET", IniLanguage.INSTANCE);
+	IElementType LBRACKET = new IElementType("LBRACKET", IniLanguage.INSTANCE);
+	IElementType SECTION_SEPARATOR = new IElementType("SECTION_SEPARATOR", IniLanguage.INSTANCE);
 
 	TokenSet COMMENTS = TokenSet.create(END_OF_LINE_COMMENT);
 	TokenSet STRINGS = TokenSet.create(IniTokenTypes.QUOTED_STRING);

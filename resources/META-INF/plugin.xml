@@ -7,11 +7,16 @@
 	<extensions defaultExtensionNs="com.intellij">
 		<lang.parserDefinition language="INI"
 							   implementationClass="org.gark87.intellij.lang.ini.parsing.IniParserDefinition"/>
+		<lang.ast.leafFactory implementation="org.gark87.intellij.lang.ini.psi.IniAstLeafFactory" />
 		<colorSettingsPage implementation="org.gark87.intellij.lang.ini.IniColorsPage"/>
 		<lang.elementManipulator forClass="org.gark87.intellij.lang.ini.psi.SectionImpl"
 								 implementationClass="org.gark87.intellij.lang.ini.SectionManipulator"/>
 		<lang.findUsagesProvider language="INI"
 								 implementationClass="org.gark87.intellij.lang.ini.findUsages.IniFindUsagesProvider"/>
 		<fileTypeFactory implementation="org.gark87.intellij.lang.ini.IniFileTypeFactory"/>
+		<stubElementTypeHolder class="org.gark87.intellij.lang.ini.parsing.IniStubTokenTypes"/>
+		<stubIndex implementation="org.gark87.intellij.lang.ini.psi.stub.IniPropertyIndex" />
+		<gotoSymbolContributor implementation="org.mustbe.consulo.ini.gotoSymbol.IniGotoSymbolContributor" />
+		<iconDescriptorUpdater implementation="org.mustbe.consulo.ini.IniIconDescriptorUpdater" />
 	</extensions>
 </idea-plugin>

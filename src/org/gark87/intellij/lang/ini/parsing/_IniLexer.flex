@@ -22,12 +22,6 @@ import com.intellij.psi.tree.IElementType;
 %eof{  return;
 %eof}
 
-%{
-public void reset(CharSequence charSequence, int i) {
-  throw new IllegalStateException("Older versions of Idea use this deprecated method");
-}
-%}
-
 CRLF= \n | \r\n?
 WHITE_SPACE_CHAR=[\ \t\f]
 QUOTED_STRING=\"([^\"\\\r\n] | "\\"[^\r\n])*\"

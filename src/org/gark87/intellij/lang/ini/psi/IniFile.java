@@ -18,10 +18,12 @@ package org.gark87.intellij.lang.ini.psi;
 
 import org.gark87.intellij.lang.ini.IniFileType;
 import org.gark87.intellij.lang.ini.IniLanguage;
+import org.gark87.intellij.lang.ini.parsing.IniStubTokenTypes;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.extapi.psi.PsiFileBase;
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.psi.FileViewProvider;
+import com.intellij.psi.stubs.StubElement;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
@@ -31,6 +33,17 @@ public class IniFile extends PsiFileBase
 	public IniFile(FileViewProvider viewProvider)
 	{
 		super(viewProvider, IniLanguage.INSTANCE);
+	}
+
+	@NotNull
+	public IniSection[] getSections()
+	{
+		StubElement<?> stub = getStub();
+		if(stub != null)
+		{
+			return stub.getChildrenByType(IniStubTokenTypes.SECTION, IniSection.ARRAY_FACTORY);
+		}
+		return findChildrenByClass(IniSection.class);
 	}
 
 	@Override
