@@ -32,6 +32,7 @@ public class IniSectionProcessor implements PsiElementProcessor
 		this.needle = element.getSubSections();
 	}
 
+	@Override
 	public boolean execute(PsiElement element)
 	{
 		if(element instanceof Section)

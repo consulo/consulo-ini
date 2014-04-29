@@ -65,9 +65,9 @@ public class SectionImpl extends LeafPsiElement implements PsiNamedElement
 		return getText();
 	}
 
+	@Override
 	public PsiElement setName(@NonNls String s) throws IncorrectOperationException
 	{
-
 		return this;
 	}
 }

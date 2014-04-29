@@ -33,6 +33,7 @@ public class SectionPsiReference extends PsiReferenceBase<SectionImpl>
 
 	private SectionImpl psiElement;
 
+	@Override
 	public SectionImpl resolve()
 	{
 		IniSectionProcessor processor = new IniSectionProcessor(psiElement);
@@ -44,6 +45,7 @@ public class SectionPsiReference extends PsiReferenceBase<SectionImpl>
 		return null;
 	}
 
+	@Override
 	@NotNull
 	public Object[] getVariants()
 	{

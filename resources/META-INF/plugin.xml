@@ -1,33 +1,17 @@
 <idea-plugin version="2">
-    <application-components>
-        <component>
-            <implementation-class>org.gark87.intellij.lang.ini.IniSupportLoader</implementation-class>
-        </component>
-    </application-components>
-    <name>INIPlugin</name>
-    <description>Simple support for *.ini files</description>
-    <version>1.0</version>
-    <vendor>gark87</vendor>
-    <idea-version since-build="95.429"/>
-    <project-components>
-        <!-- Add your project components here -->
-    </project-components>
+	<id>org.mustbe.consulo.ini</id>
+	<name>*.ini</name>
+	<version>SNAPSHOT</version>
+	<vendor>gark87</vendor>
 
-    <extensions defaultExtensionNs="com.intellij">
-        <lang.parserDefinition language="INI"
-                               implementationClass="org.gark87.intellij.lang.ini.parsing.IniParserDefinition"/>
-        <colorSettingsPage implementation="org.gark87.intellij.lang.ini.IniColorsPage"/>
-        <lang.ast.factory language="INI" implementationClass="org.gark87.intellij.lang.ini.psi.IniASTFactory"/>
-        <lang.elementManipulator forClass="org.gark87.intellij.lang.ini.psi.SectionImpl"
-                                 implementationClass="org.gark87.intellij.lang.ini.SectionManipulator"/>
-        <lang.findUsagesProvider language="INI"
-                                 implementationClass="org.gark87.intellij.lang.ini.findUsages.IniFindUsagesProvider"/>
-
-
-    </extensions>
-
-
-    <actions>
-        <!-- Add your actions here -->
-    </actions>
-</idea-plugin>                                              
+	<extensions defaultExtensionNs="com.intellij">
+		<lang.parserDefinition language="INI"
+							   implementationClass="org.gark87.intellij.lang.ini.parsing.IniParserDefinition"/>
+		<colorSettingsPage implementation="org.gark87.intellij.lang.ini.IniColorsPage"/>
+		<lang.elementManipulator forClass="org.gark87.intellij.lang.ini.psi.SectionImpl"
+								 implementationClass="org.gark87.intellij.lang.ini.SectionManipulator"/>
+		<lang.findUsagesProvider language="INI"
+								 implementationClass="org.gark87.intellij.lang.ini.findUsages.IniFindUsagesProvider"/>
+		<fileTypeFactory implementation="org.gark87.intellij.lang.ini.IniFileTypeFactory"/>
+	</extensions>
+</idea-plugin>

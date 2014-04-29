@@ -16,7 +16,7 @@
 
 package org.gark87.intellij.lang.ini.parsing;
 
-import org.gark87.intellij.lang.ini.IniSupportLoader;
+import org.gark87.intellij.lang.ini.IniLanguage;
 import org.jetbrains.annotations.NonNls;
 import com.intellij.psi.tree.IElementType;
 
@@ -27,7 +27,7 @@ public class IniElementType extends IElementType
 {
 	public IniElementType(@NonNls String debugName)
 	{
-		super(debugName, IniSupportLoader.INI.getLanguage());
+		super(debugName, IniLanguage.INSTANCE);
 	}
 
 	@SuppressWarnings({"HardCodedStringLiteral"})

@@ -16,45 +16,9 @@
 
 package org.gark87.intellij.lang.ini;
 
-import java.lang.ref.Reference;
-import java.lang.ref.SoftReference;
-import java.util.ResourceBundle;
+import org.consulo.lombok.annotations.Bundle;
 
-import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.PropertyKey;
-import com.intellij.CommonBundle;
-
-/**
- * @author gark87 <arkady.galyash@gmail.com>
- */
+@Bundle
 public class IniBundle
 {
-	private static Reference<ResourceBundle> ourBundle;
-
-	@NonNls
-	protected static final String PATH_TO_BUNDLE = "messages.IniBundle";
-
-	private IniBundle()
-	{
-	}
-
-	public static String message(@PropertyKey(resourceBundle = PATH_TO_BUNDLE) String key, Object... params)
-	{
-		return CommonBundle.message(getBundle(), key, params);
-	}
-
-	private static ResourceBundle getBundle()
-	{
-		ResourceBundle bundle = null;
-		if(ourBundle != null)
-		{
-			bundle = ourBundle.get();
-		}
-		if(bundle == null)
-		{
-			bundle = ResourceBundle.getBundle(PATH_TO_BUNDLE);
-			ourBundle = new SoftReference<ResourceBundle>(bundle);
-		}
-		return bundle;
-	}
 }

@@ -29,7 +29,7 @@ public interface IniElementTypes
 {
 	IniLanguage LANG = Language.findInstance(IniLanguage.class);
 
-	IFileElementType FILE = new IStubFileElementType(LANG);
+	IFileElementType FILE = new IStubFileElementType(IniLanguage.INSTANCE);
 	IElementType PROPERTY = new IniElementType("<PROPERTY>");
 	IElementType SECTION = new IniElementType("<SECTION>");
 }

@@ -16,8 +16,8 @@
 
 package org.gark87.intellij.lang.ini.psi;
 
-import org.gark87.intellij.lang.ini.IniSupportLoader;
-import org.gark87.intellij.lang.ini.parsing.IniElementTypes;
+import org.gark87.intellij.lang.ini.IniFileType;
+import org.gark87.intellij.lang.ini.IniLanguage;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.extapi.psi.PsiFileBase;
 import com.intellij.openapi.fileTypes.FileType;
@@ -30,12 +30,13 @@ public class IniFile extends PsiFileBase
 {
 	public IniFile(FileViewProvider viewProvider)
 	{
-		super(viewProvider, IniElementTypes.LANG);
+		super(viewProvider, IniLanguage.INSTANCE);
 	}
 
+	@Override
 	@NotNull
 	public FileType getFileType()
 	{
-		return IniSupportLoader.INI;
+		return IniFileType.INSTANCE;
 	}
 }

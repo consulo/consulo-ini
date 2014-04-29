@@ -1,0 +1,1 @@
+Initial code was get from repo :https://github.com/gark87/INIPlugin

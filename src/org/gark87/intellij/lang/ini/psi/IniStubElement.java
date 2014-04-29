@@ -16,7 +16,7 @@
 
 package org.gark87.intellij.lang.ini.psi;
 
-import org.gark87.intellij.lang.ini.parsing.IniElementTypes;
+import org.gark87.intellij.lang.ini.IniLanguage;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.extapi.psi.StubBasedPsiElementBase;
 import com.intellij.lang.ASTNode;
@@ -37,6 +37,6 @@ public class IniStubElement<T extends StubElement> extends StubBasedPsiElementBa
 	@Override
 	public Language getLanguage()
 	{
-		return IniElementTypes.LANG;
+		return IniLanguage.INSTANCE;
 	}
 }

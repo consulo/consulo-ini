@@ -19,41 +19,45 @@ package org.gark87.intellij.lang.ini;
 import javax.swing.Icon;
 
 import org.jetbrains.annotations.NotNull;
+import com.intellij.icons.AllIcons;
 import com.intellij.openapi.fileTypes.LanguageFileType;
-import com.intellij.openapi.util.IconLoader;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
 public class IniFileType extends LanguageFileType
 {
-	private static final Icon ICON = IconLoader.getIcon("/icons/ini.png");
+	public static final IniFileType INSTANCE = new IniFileType();
 
 	public IniFileType()
 	{
-		super(new org.gark87.intellij.lang.ini.IniLanguage());
+		super(IniLanguage.INSTANCE);
 	}
 
+	@Override
 	@NotNull
 	public String getName()
 	{
 		return "INI";
 	}
 
+	@Override
 	@NotNull
 	public String getDescription()
 	{
-		return "INI";
+		return "*.ini files";
 	}
 
+	@Override
 	@NotNull
 	public String getDefaultExtension()
 	{
 		return "ini";
 	}
 
+	@Override
 	public Icon getIcon()
 	{
-		return ICON;
+		return AllIcons.FileTypes.Config;
 	}
 }

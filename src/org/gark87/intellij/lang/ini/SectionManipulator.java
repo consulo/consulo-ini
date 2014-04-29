@@ -26,6 +26,7 @@ import com.intellij.util.IncorrectOperationException;
  */
 public class SectionManipulator extends AbstractElementManipulator<SectionImpl>
 {
+	@Override
 	public SectionImpl handleContentChange(SectionImpl element, TextRange range, String newContent) throws IncorrectOperationException
 	{
 		final String oldText = element.getText();

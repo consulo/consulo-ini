@@ -29,27 +29,32 @@ import com.intellij.psi.PsiNamedElement;
  */
 public class IniFindUsagesProvider implements FindUsagesProvider
 {
+	@Override
 	public WordsScanner getWordsScanner()
 	{
 		return new IniWordsScanner();
 	}
 
+	@Override
 	public boolean canFindUsagesFor(@NotNull PsiElement psiElement)
 	{
 		return psiElement instanceof SectionImpl;
 	}
 
+	@Override
 	public String getHelpId(@NotNull PsiElement psiElement)
 	{
 		return HelpID.FIND_OTHER_USAGES;
 	}
 
+	@Override
 	@NotNull
 	public String getType(@NotNull PsiElement psiElement)
 	{
 		return "section";
 	}
 
+	@Override
 	@NotNull
 	public String getDescriptiveName(@NotNull PsiElement psiElement)
 	{
@@ -57,6 +62,7 @@ public class IniFindUsagesProvider implements FindUsagesProvider
 		return name == null ? "" : name;
 	}
 
+	@Override
 	@NotNull
 	public String getNodeText(@NotNull PsiElement psiElement, boolean b)
 	{

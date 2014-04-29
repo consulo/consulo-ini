@@ -27,12 +27,14 @@ import com.intellij.openapi.fileTypes.SyntaxHighlighterFactory;
  */
 public class IniLanguage extends Language
 {
+	public static IniLanguage INSTANCE = new IniLanguage();
 
 	public IniLanguage()
 	{
 		super("INI", "text/ini");
 		SyntaxHighlighterFactory.LANGUAGE_FACTORY.addExplicitExtension(this, new SingleLazyInstanceSyntaxHighlighterFactory()
 		{
+			@Override
 			@NotNull
 			protected SyntaxHighlighter createHighlighter()
 			{
@@ -41,11 +43,7 @@ public class IniLanguage extends Language
 		});
 	}
 
-	public String getDisplayName()
-	{
-		return "INI";
-	}
-
+	@Override
 	public boolean isCaseSensitive()
 	{
 		return true;

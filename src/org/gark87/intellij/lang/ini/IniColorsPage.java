@@ -47,35 +47,41 @@ public class IniColorsPage implements ColorSettingsPage
 	}
 
 
+	@Override
 	@NotNull
 	public String getDisplayName()
 	{
 		return "Ini";
 	}
 
+	@Override
 	public Icon getIcon()
 	{
 		return null;
 	}
 
+	@Override
 	@NotNull
 	public AttributesDescriptor[] getAttributeDescriptors()
 	{
 		return ATTRS;
 	}
 
+	@Override
 	@NotNull
 	public ColorDescriptor[] getColorDescriptors()
 	{
 		return ColorDescriptor.EMPTY_ARRAY;
 	}
 
+	@Override
 	@NotNull
 	public SyntaxHighlighter getHighlighter()
 	{
 		return new IniHighlighter();
 	}
 
+	@Override
 	@NotNull
 	public String getDemoText()
 	{
@@ -84,6 +90,7 @@ public class IniColorsPage implements ColorSettingsPage
 				"key1  = value1 \"quoted string\"";
 	}
 
+	@Override
 	public Map<String, TextAttributesKey> getAdditionalHighlightingTagToDescriptorMap()
 	{
 		return null;

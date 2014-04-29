@@ -21,6 +21,7 @@ import org.gark87.intellij.lang.ini.psi.Section;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.intellij.lang.ASTNode;
+import com.intellij.lang.LanguageVersion;
 import com.intellij.lang.ParserDefinition;
 import com.intellij.lang.PsiParser;
 import com.intellij.lexer.Lexer;
@@ -37,40 +38,49 @@ import com.intellij.psi.tree.TokenSet;
  */
 public class IniParserDefinition implements ParserDefinition
 {
+	@Override
 	@NotNull
-	public Lexer createLexer(Project project)
+	public Lexer createLexer(Project project, @NotNull LanguageVersion languageVersion)
 	{
 		return new IniLexer();
 	}
 
-	public PsiParser createParser(Project project)
+	@Override
+	@NotNull
+	public PsiParser createParser(Project project, @NotNull LanguageVersion languageVersion)
 	{
 		return new IniParser();
 	}
 
+	@Override
+	@NotNull
 	public IFileElementType getFileNodeType()
 	{
 		return IniElementTypes.FILE;
 	}
 
+	@Override
 	@NotNull
-	public TokenSet getWhitespaceTokens()
+	public TokenSet getWhitespaceTokens(@NotNull LanguageVersion languageVersion)
 	{
 		return IniTokenTypes.WHITESPACES;
 	}
 
+	@Override
 	@NotNull
-	public TokenSet getCommentTokens()
+	public TokenSet getCommentTokens(@NotNull LanguageVersion languageVersion)
 	{
 		return IniTokenTypes.COMMENTS;
 	}
 
+	@Override
 	@NotNull
-	public TokenSet getStringLiteralElements()
+	public TokenSet getStringLiteralElements(@NotNull LanguageVersion languageVersion)
 	{
 		return IniTokenTypes.STRINGS;
 	}
 
+	@Override
 	@NotNull
 	public PsiElement createElement(ASTNode node)
 	{
@@ -82,11 +92,14 @@ public class IniParserDefinition implements ParserDefinition
 		return new ASTWrapperPsiElement(node);
 	}
 
+	@Override
 	public PsiFile createFile(FileViewProvider viewProvider)
 	{
 		return new IniFile(viewProvider);
 	}
 
+	@Override
+	@NotNull
 	public SpaceRequirements spaceExistanceTypeBetweenTokens(ASTNode left, ASTNode right)
 	{
 		if(left.getElementType() == IniTokenTypes.END_OF_LINE_COMMENT)
