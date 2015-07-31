@@ -17,7 +17,6 @@
 package org.gark87.intellij.lang.ini.parsing;
 
 import org.gark87.intellij.lang.ini.IniLanguage;
-import com.intellij.lang.Language;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.tree.IFileElementType;
 import com.intellij.psi.tree.IStubFileElementType;
@@ -27,8 +26,6 @@ import com.intellij.psi.tree.IStubFileElementType;
  */
 public interface IniElementTypes
 {
-	IniLanguage LANG = Language.findInstance(IniLanguage.class);
-
 	IFileElementType FILE = new IStubFileElementType(IniLanguage.INSTANCE)
 	{
 		@Override
