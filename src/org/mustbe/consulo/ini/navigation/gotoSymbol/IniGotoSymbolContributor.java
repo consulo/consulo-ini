@@ -1,4 +1,4 @@
-package org.mustbe.consulo.ini.gotoSymbol;
+package org.mustbe.consulo.ini.navigation.gotoSymbol;
 
 import org.gark87.intellij.lang.ini.psi.IniProperty;
 import org.gark87.intellij.lang.ini.psi.stub.IniIndexKeys;
@@ -49,6 +49,6 @@ public class IniGotoSymbolContributor implements ChooseByNameContributorEx
 	{
 		CommonProcessors.CollectProcessor<NavigationItem> processor = new CommonProcessors.CollectProcessor<NavigationItem>();
 		processElementsWithName(name, processor, FindSymbolParameters.wrap(pattern, project, includeNonProjectItems));
-		return processor.toArray(new NavigationItem[processor.getResults().size()]);
+		return processor.toArray(NavigationItem.ARRAY_FACTORY);
 	}
 }

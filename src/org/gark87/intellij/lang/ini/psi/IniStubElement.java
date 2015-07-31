@@ -18,16 +18,18 @@ package org.gark87.intellij.lang.ini.psi;
 
 import org.gark87.intellij.lang.ini.IniLanguage;
 import org.jetbrains.annotations.NotNull;
+import org.mustbe.consulo.RequiredReadAction;
 import com.intellij.extapi.psi.StubBasedPsiElementBase;
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.Language;
+import com.intellij.psi.StubBasedPsiElement;
 import com.intellij.psi.stubs.IStubElementType;
 import com.intellij.psi.stubs.StubElement;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
-public class IniStubElement<T extends StubElement> extends StubBasedPsiElementBase<T>
+public class IniStubElement<T extends StubElement> extends StubBasedPsiElementBase<T>  implements StubBasedPsiElement<T>
 {
 	public IniStubElement(@org.jetbrains.annotations.NotNull ASTNode node)
 	{
@@ -39,6 +41,7 @@ public class IniStubElement<T extends StubElement> extends StubBasedPsiElementBa
 		super(stub, nodeType);
 	}
 
+	@RequiredReadAction
 	@NotNull
 	@Override
 	public Language getLanguage()

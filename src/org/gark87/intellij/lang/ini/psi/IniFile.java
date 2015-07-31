@@ -20,6 +20,7 @@ import org.gark87.intellij.lang.ini.IniFileType;
 import org.gark87.intellij.lang.ini.IniLanguage;
 import org.gark87.intellij.lang.ini.parsing.IniStubTokenTypes;
 import org.jetbrains.annotations.NotNull;
+import org.mustbe.consulo.RequiredReadAction;
 import com.intellij.extapi.psi.PsiFileBase;
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.psi.FileViewProvider;
@@ -36,6 +37,7 @@ public class IniFile extends PsiFileBase
 	}
 
 	@NotNull
+	@RequiredReadAction
 	public IniSection[] getSections()
 	{
 		StubElement<?> stub = getStub();
