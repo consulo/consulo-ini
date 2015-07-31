@@ -16,8 +16,8 @@
 
 package org.gark87.intellij.lang.ini.findUsages;
 
-import org.gark87.intellij.lang.ini.parsing.IniLexer;
 import org.gark87.intellij.lang.ini.parsing.IniTokenTypes;
+import org.gark87.intellij.lang.ini.parsing._IniLexer;
 import com.intellij.lang.cacheBuilder.DefaultWordsScanner;
 
 /**
@@ -27,6 +27,6 @@ public class IniWordsScanner extends DefaultWordsScanner
 {
 	public IniWordsScanner()
 	{
-		super(new IniLexer(), IniTokenTypes.SECTIONS, IniTokenTypes.COMMENTS, IniTokenTypes.STRINGS);
+		super(new _IniLexer(), IniTokenTypes.SECTIONS, IniTokenTypes.COMMENTS, IniTokenTypes.STRINGS);
 	}
 }

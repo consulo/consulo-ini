@@ -42,7 +42,7 @@ public class IniParserDefinition implements ParserDefinition
 	@NotNull
 	public Lexer createLexer(Project project, @NotNull LanguageVersion languageVersion)
 	{
-		return new IniLexer();
+		return new _IniLexer();
 	}
 
 	@Override

@@ -16,7 +16,7 @@
 
 package org.gark87.intellij.lang.ini;
 
-import org.gark87.intellij.lang.ini.parsing.IniLexer;
+import org.gark87.intellij.lang.ini.parsing._IniLexer;
 import com.intellij.lexer.LayeredLexer;
 
 /**
@@ -26,6 +26,6 @@ public class IniHighlightingLexer extends LayeredLexer
 {
 	public IniHighlightingLexer()
 	{
-		super(new IniLexer());
+		super(new _IniLexer());
 	}
 }

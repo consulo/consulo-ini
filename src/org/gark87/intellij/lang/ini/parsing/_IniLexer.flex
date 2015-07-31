@@ -9,15 +9,16 @@
  */
 package org.gark87.intellij.lang.ini.parsing;
 
-import com.intellij.lexer.FlexLexer;
+import com.intellij.lexer.LexerBase;
 import com.intellij.psi.tree.IElementType;
 
 %%
 
+%public
 %class _IniLexer
-%implements FlexLexer
+%extends LexerBase
 %unicode
-%function advance
+%function advanceImpl
 %type IElementType
 %eof{  return;
 %eof}
