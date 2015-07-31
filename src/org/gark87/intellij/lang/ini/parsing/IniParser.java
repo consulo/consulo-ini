@@ -33,12 +33,17 @@ public class IniParser implements PsiParser
 	public ASTNode parse(@NotNull IElementType root, @NotNull PsiBuilder builder, @NotNull LanguageVersion languageVersion)
 	{
 		final PsiBuilder.Marker rootMarker = builder.mark();
-		PsiBuilder.Marker sectionMarker = builder.mark();
+		Parsing.SectionInfo sectionMarker = new Parsing.SectionInfo(builder.mark());
 		while(!builder.eof())
 		{
-			sectionMarker = Parsing.parseStmt(builder, sectionMarker);
+			sectionMarker = Parsing.parseStatement(builder, sectionMarker);
 		}
-		sectionMarker.done(IniElementTypes.SECTION);
+
+		if(sectionMarker != null)
+		{
+			sectionMarker.done();
+		}
+
 		rootMarker.done(root);
 		return builder.getTreeBuilt();
 	}

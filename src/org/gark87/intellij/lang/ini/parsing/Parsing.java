@@ -17,28 +17,60 @@
 package org.gark87.intellij.lang.ini.parsing;
 
 import org.gark87.intellij.lang.ini.IniBundle;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import com.intellij.lang.PsiBuilder;
-import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.psi.tree.IElementType;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
+@org.consulo.lombok.annotations.Logger
 public class Parsing
 {
-	private static final Logger LOG = Logger.getInstance("#com.intellij.lang.ini.parsing.Parsing");
+	public static class SectionInfo
+	{
+		private PsiBuilder.Marker myMarker;
+		private boolean myNotEmpty;
 
-	public static PsiBuilder.Marker parseStmt(PsiBuilder builder, PsiBuilder.Marker sectionMarker)
+		public SectionInfo(@NotNull PsiBuilder.Marker marker)
+		{
+			myMarker = marker;
+		}
+
+		@NotNull
+		public SectionInfo notEmpty()
+		{
+			myNotEmpty = true;
+			return this;
+		}
+
+		public void done()
+		{
+			if(myNotEmpty)
+			{
+				myMarker.done(IniElementTypes.SECTION);
+			}
+			else
+			{
+				myMarker.drop();
+			}
+		}
+	}
+
+	@Nullable
+	public static SectionInfo parseStatement(PsiBuilder builder, @Nullable SectionInfo sectionMarker)
 	{
 		IElementType tokenType = skipEOLs(builder);
 		if(tokenType == IniTokenTypes.LBRACKET)
 		{
 			return parseSectionName(builder, sectionMarker);
 		}
-		if(tokenType == IniTokenTypes.KEY_CHARACTERS)
+		else if(tokenType == IniTokenTypes.KEY_CHARACTERS)
 		{
+			assert sectionMarker != null;
 			parseProperty(builder);
-			return sectionMarker;
+			return sectionMarker.notEmpty();
 		}
 		else
 		{
@@ -48,9 +80,17 @@ public class Parsing
 		return sectionMarker;
 	}
 
-	private static PsiBuilder.Marker parseSectionName(PsiBuilder builder, PsiBuilder.Marker oldMarker)
+	private static SectionInfo parseSectionName(PsiBuilder builder, @Nullable SectionInfo oldMarker)
 	{
-		LOG.assertTrue(builder.getTokenType() == IniTokenTypes.LBRACKET);
+		if(oldMarker != null)
+		{
+			oldMarker.done();
+		}
+
+		PsiBuilder.Marker rootMarker = builder.mark();
+
+		PsiBuilder.Marker headerMarker = builder.mark();
+		LOGGER.assertTrue(builder.getTokenType() == IniTokenTypes.LBRACKET);
 		builder.advanceLexer();
 		IElementType tokenType = builder.getTokenType();
 		boolean afterSeparator = false;
@@ -72,11 +112,12 @@ public class Parsing
 		{
 			builder.advanceLexer();
 		}
-		oldMarker.done(IniElementTypes.SECTION);
-		lookupEOL(builder);
-		return builder.mark();
+		headerMarker.done(IniStubTokenTypes.SECTION_HEADER);
+
+		return new SectionInfo(rootMarker);
 	}
 
+	@Nullable
 	private static IElementType skipEOLs(PsiBuilder builder)
 	{
 		IElementType tokenType = builder.getTokenType();
@@ -118,7 +159,7 @@ public class Parsing
 
 	private static void parseKeyValueSeparator(final PsiBuilder builder)
 	{
-		LOG.assertTrue(builder.getTokenType() == IniTokenTypes.KEY_VALUE_SEPARATOR);
+		LOGGER.assertTrue(builder.getTokenType() == IniTokenTypes.KEY_VALUE_SEPARATOR);
 		builder.advanceLexer();
 	}
 
@@ -132,7 +173,7 @@ public class Parsing
 
 	private static void parseKey(final PsiBuilder builder)
 	{
-		LOG.assertTrue(builder.getTokenType() == IniTokenTypes.KEY_CHARACTERS);
+		LOGGER.assertTrue(builder.getTokenType() == IniTokenTypes.KEY_CHARACTERS);
 		builder.advanceLexer();
 	}
 }

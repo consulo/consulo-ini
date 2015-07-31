@@ -31,7 +31,7 @@ public interface IniElementTypes
 		@Override
 		public int getStubVersion()
 		{
-			return 2;
+			return 5;
 		}
 	};
 	IElementType PROPERTY = IniStubTokenTypes.PROPERTY;

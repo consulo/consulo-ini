@@ -18,36 +18,39 @@ package org.gark87.intellij.lang.ini.psi;
 
 import org.consulo.lombok.annotations.ArrayFactoryFields;
 import org.gark87.intellij.lang.ini.parsing.IniStubTokenTypes;
-import org.gark87.intellij.lang.ini.psi.stub.IniSectionStub;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.mustbe.consulo.RequiredReadAction;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiNameIdentifierOwner;
 import com.intellij.psi.PsiNamedElement;
+import com.intellij.psi.stubs.EmptyStub;
+import com.intellij.psi.stubs.IStubElementType;
 import com.intellij.util.IncorrectOperationException;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
 @ArrayFactoryFields
-public class IniSection extends IniStubElement<IniSectionStub> implements PsiNamedElement, PsiNameIdentifierOwner
+public class IniSection extends IniStubElement<EmptyStub<IniSection>> implements PsiNamedElement, PsiNameIdentifierOwner
 {
 	public IniSection(ASTNode node)
 	{
 		super(node);
 	}
 
-	public IniSection(@NotNull IniSectionStub stub)
+	public IniSection(@NotNull EmptyStub<IniSection> stub, @NotNull IStubElementType nodeType)
 	{
-		super(stub, IniStubTokenTypes.SECTION);
+		super(stub, nodeType);
 	}
 
-	@NonNls
-	public String toString()
+	@Nullable
+	@RequiredReadAction
+	public IniSectionHeader getHeader()
 	{
-		return "Section: " + getText();
+		return getStubOrPsiChild(IniStubTokenTypes.SECTION_HEADER);
 	}
 
 	@NotNull
@@ -57,9 +60,18 @@ public class IniSection extends IniStubElement<IniSectionStub> implements PsiNam
 	}
 
 	@NotNull
+	@RequiredReadAction
 	public IniProperty[] getProperties()
 	{
 		return getStubOrPsiChildren(IniStubTokenTypes.PROPERTY, IniProperty.ARRAY_FACTORY);
+	}
+
+	@Override
+	@RequiredReadAction
+	public String getName()
+	{
+		IniSectionHeader header = getHeader();
+		return header == null ? null : header.getName();
 	}
 
 	@Nullable

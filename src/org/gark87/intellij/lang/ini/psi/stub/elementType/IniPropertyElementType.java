@@ -6,6 +6,7 @@ import org.gark87.intellij.lang.ini.psi.IniProperty;
 import org.gark87.intellij.lang.ini.psi.stub.IniIndexKeys;
 import org.gark87.intellij.lang.ini.psi.stub.IniPropertyStub;
 import org.jetbrains.annotations.NotNull;
+import org.mustbe.consulo.RequiredReadAction;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.stubs.IndexSink;
 import com.intellij.psi.stubs.StubElement;
@@ -30,6 +31,7 @@ public class IniPropertyElementType extends IniStubElementType<IniPropertyStub, 
 		return new IniProperty(iniPropertyStub);
 	}
 
+	@RequiredReadAction
 	@Override
 	public IniPropertyStub createStub(@NotNull IniProperty iniProperty, StubElement stubElement)
 	{
