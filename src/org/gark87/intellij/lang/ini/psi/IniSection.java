@@ -16,7 +16,6 @@
 
 package org.gark87.intellij.lang.ini.psi;
 
-import org.consulo.lombok.annotations.ArrayFactoryFields;
 import org.gark87.intellij.lang.ini.parsing.IniStubTokenTypes;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
@@ -29,6 +28,7 @@ import com.intellij.psi.PsiNamedElement;
 import com.intellij.psi.stubs.EmptyStub;
 import com.intellij.psi.stubs.IStubElementType;
 import com.intellij.util.IncorrectOperationException;
+import consulo.lombok.annotations.ArrayFactoryFields;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>

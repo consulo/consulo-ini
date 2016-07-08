@@ -21,11 +21,12 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.lang.PsiBuilder;
 import com.intellij.psi.tree.IElementType;
+import consulo.lombok.annotations.Logger;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
-@org.consulo.lombok.annotations.Logger
+@Logger
 public class Parsing
 {
 	public static class SectionInfo

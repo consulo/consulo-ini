@@ -16,7 +16,7 @@
 
 package org.gark87.intellij.lang.ini;
 
-import org.consulo.lombok.annotations.Bundle;
+import consulo.lombok.annotations.Bundle;
 
 @Bundle
 public class IniBundle

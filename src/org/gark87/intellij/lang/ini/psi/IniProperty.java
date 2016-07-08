@@ -1,6 +1,5 @@
 package org.gark87.intellij.lang.ini.psi;
 
-import org.consulo.lombok.annotations.ArrayFactoryFields;
 import org.gark87.intellij.lang.ini.parsing.IniStubTokenTypes;
 import org.gark87.intellij.lang.ini.parsing.IniTokenTypes;
 import org.gark87.intellij.lang.ini.psi.stub.IniPropertyStub;
@@ -15,6 +14,7 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiNameIdentifierOwner;
 import com.intellij.psi.PsiNamedElement;
 import com.intellij.util.IncorrectOperationException;
+import consulo.lombok.annotations.ArrayFactoryFields;
 
 /**
  * @author VISTALL

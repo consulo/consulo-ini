@@ -22,6 +22,7 @@ import org.mustbe.consulo.RequiredReadAction;
 import com.intellij.extapi.psi.StubBasedPsiElementBase;
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.Language;
+import com.intellij.psi.PsiElement;
 import com.intellij.psi.StubBasedPsiElement;
 import com.intellij.psi.stubs.IStubElementType;
 import com.intellij.psi.stubs.StubElement;
@@ -34,6 +35,12 @@ public class IniStubElement<T extends StubElement> extends StubBasedPsiElementBa
 	public IniStubElement(@org.jetbrains.annotations.NotNull ASTNode node)
 	{
 		super(node);
+	}
+
+	@Override
+	public PsiElement getParent()
+	{
+		return getParentByStub();
 	}
 
 	public IniStubElement(@NotNull T stub, @NotNull IStubElementType nodeType)
