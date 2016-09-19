@@ -1,4 +1,4 @@
-package org.mustbe.consulo.ini.navigation.gotoSymbol;
+package consulo.ini.navigation.gotoSymbol;
 
 import org.gark87.intellij.lang.ini.psi.IniProperty;
 import org.gark87.intellij.lang.ini.psi.stub.IniIndexKeys;

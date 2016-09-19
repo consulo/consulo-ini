@@ -1,14 +1,14 @@
-package org.mustbe.consulo.ini.presentation;
+package consulo.ini.presentation;
 
-import javax.swing.Icon;
-
+import com.intellij.navigation.ItemPresentation;
+import com.intellij.navigation.ItemPresentationProvider;
+import consulo.annotations.RequiredReadAction;
+import consulo.ide.IconDescriptorUpdaters;
 import org.gark87.intellij.lang.ini.psi.IniProperty;
 import org.gark87.intellij.lang.ini.psi.IniSection;
 import org.jetbrains.annotations.Nullable;
-import org.mustbe.consulo.RequiredReadAction;
-import com.intellij.ide.IconDescriptorUpdaters;
-import com.intellij.navigation.ItemPresentation;
-import com.intellij.navigation.ItemPresentationProvider;
+
+import javax.swing.*;
 
 /**
  * @author VISTALL

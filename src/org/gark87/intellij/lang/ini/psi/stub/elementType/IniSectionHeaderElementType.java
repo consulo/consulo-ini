@@ -2,10 +2,10 @@ package org.gark87.intellij.lang.ini.psi.stub.elementType;
 
 import java.io.IOException;
 
+import consulo.annotations.RequiredReadAction;
 import org.gark87.intellij.lang.ini.psi.IniSectionHeader;
 import org.gark87.intellij.lang.ini.psi.stub.IniSectionHeaderStub;
 import org.jetbrains.annotations.NotNull;
-import org.mustbe.consulo.RequiredReadAction;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.stubs.StubElement;
 import com.intellij.psi.stubs.StubInputStream;

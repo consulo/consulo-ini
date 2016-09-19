@@ -1,11 +1,11 @@
-package org.mustbe.consulo.ini;
+package consulo.ini;
 
+import com.intellij.icons.AllIcons;
+import com.intellij.psi.PsiElement;
+import consulo.ide.IconDescriptor;
+import consulo.ide.IconDescriptorUpdater;
 import org.gark87.intellij.lang.ini.psi.IniProperty;
 import org.jetbrains.annotations.NotNull;
-import com.intellij.icons.AllIcons;
-import com.intellij.ide.IconDescriptor;
-import com.intellij.ide.IconDescriptorUpdater;
-import com.intellij.psi.PsiElement;
 
 /**
  * @author VISTALL

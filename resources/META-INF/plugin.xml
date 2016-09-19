@@ -1,5 +1,5 @@
 <idea-plugin version="2">
-	<id>org.mustbe.consulo.ini</id>
+	<id>consulo.ini</id>
 	<name>*.ini</name>
 	<version>SNAPSHOT</version>
 	<vendor>gark87</vendor>
@@ -16,10 +16,10 @@
 		<fileTypeFactory implementation="org.gark87.intellij.lang.ini.IniFileTypeFactory"/>
 		<stubElementTypeHolder class="org.gark87.intellij.lang.ini.parsing.IniStubTokenTypes"/>
 		<stubIndex implementation="org.gark87.intellij.lang.ini.psi.stub.IniPropertyIndex" />
-		<gotoSymbolContributor implementation="org.mustbe.consulo.ini.navigation.gotoSymbol.IniGotoSymbolContributor" />
+		<gotoSymbolContributor implementation="consulo.ini.navigation.gotoSymbol.IniGotoSymbolContributor" />
 
 		<itemPresentationProvider forClass="org.gark87.intellij.lang.ini.psi.IniProperty"
-								  implementationClass="org.mustbe.consulo.ini.presentation.IniPropertyPresentation$Provider" />
-		<iconDescriptorUpdater implementation="org.mustbe.consulo.ini.IniIconDescriptorUpdater" />
+								  implementationClass="consulo.ini.presentation.IniPropertyPresentation$Provider" />
+		<iconDescriptorUpdater implementation="consulo.ini.IniIconDescriptorUpdater" />
 	</extensions>
 </idea-plugin>

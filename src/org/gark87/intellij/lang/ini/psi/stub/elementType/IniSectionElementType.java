@@ -1,13 +1,13 @@
 package org.gark87.intellij.lang.ini.psi.stub.elementType;
 
-import org.gark87.intellij.lang.ini.IniLanguage;
-import org.gark87.intellij.lang.ini.psi.IniSection;
-import org.jetbrains.annotations.NotNull;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.stubs.EmptyStub;
 import com.intellij.psi.stubs.EmptyStubElementType;
-import com.intellij.psi.tree.IElementTypeAsPsiFactory;
+import consulo.psi.tree.IElementTypeAsPsiFactory;
+import org.gark87.intellij.lang.ini.IniLanguage;
+import org.gark87.intellij.lang.ini.psi.IniSection;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * @author VISTALL

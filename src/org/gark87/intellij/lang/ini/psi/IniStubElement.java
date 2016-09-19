@@ -16,9 +16,9 @@
 
 package org.gark87.intellij.lang.ini.psi;
 
+import consulo.annotations.RequiredReadAction;
 import org.gark87.intellij.lang.ini.IniLanguage;
 import org.jetbrains.annotations.NotNull;
-import org.mustbe.consulo.RequiredReadAction;
 import com.intellij.extapi.psi.StubBasedPsiElementBase;
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.Language;
