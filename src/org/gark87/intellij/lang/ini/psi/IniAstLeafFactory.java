@@ -16,7 +16,7 @@ public class IniAstLeafFactory implements ASTLeafFactory
 {
 	@NotNull
 	@Override
-	public LeafElement createLeaf(@NotNull IElementType type, @NotNull LanguageVersion<?> languageVersion, @NotNull CharSequence text)
+	public LeafElement createLeaf(@NotNull IElementType type, @NotNull LanguageVersion languageVersion, @NotNull CharSequence text)
 	{
 		return new SectionImpl(type, text);
 	}
