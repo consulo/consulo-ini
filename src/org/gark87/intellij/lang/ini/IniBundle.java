@@ -16,9 +16,25 @@
 
 package org.gark87.intellij.lang.ini;
 
-import consulo.lombok.annotations.Bundle;
+import org.jetbrains.annotations.PropertyKey;
+import com.intellij.AbstractBundle;
 
-@Bundle
-public class IniBundle
+public class IniBundle extends AbstractBundle
 {
+	private static final IniBundle ourInstance = new IniBundle();
+
+	private IniBundle()
+	{
+		super("messages.IniBundle");
+	}
+
+	public static String message(@PropertyKey(resourceBundle = "messages.IniBundle") String key)
+	{
+		return ourInstance.getMessage(key);
+	}
+
+	public static String message(@PropertyKey(resourceBundle = "messages.IniBundle") String key, Object... params)
+	{
+		return ourInstance.getMessage(key, params);
+	}
 }

@@ -20,22 +20,33 @@ import org.gark87.intellij.lang.ini.parsing.IniStubTokenTypes;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import consulo.annotations.RequiredReadAction;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiNameIdentifierOwner;
 import com.intellij.psi.PsiNamedElement;
 import com.intellij.psi.stubs.EmptyStub;
 import com.intellij.psi.stubs.IStubElementType;
+import com.intellij.util.ArrayFactory;
 import com.intellij.util.IncorrectOperationException;
-import consulo.lombok.annotations.ArrayFactoryFields;
+import consulo.annotations.RequiredReadAction;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
-@ArrayFactoryFields
 public class IniSection extends IniStubElement<EmptyStub<IniSection>> implements PsiNamedElement, PsiNameIdentifierOwner
 {
+	public static final IniSection[] EMPTY_ARRAY = new IniSection[0];
+
+	public static ArrayFactory<IniSection> ARRAY_FACTORY = new ArrayFactory<IniSection>()
+	{
+		@NotNull
+		@Override
+		public IniSection[] create(int count)
+		{
+			return count == 0 ? EMPTY_ARRAY : new IniSection[count];
+		}
+	};
+
 	public IniSection(ASTNode node)
 	{
 		super(node);

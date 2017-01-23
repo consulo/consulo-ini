@@ -20,15 +20,16 @@ import org.gark87.intellij.lang.ini.IniBundle;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.lang.PsiBuilder;
+import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.psi.tree.IElementType;
-import consulo.lombok.annotations.Logger;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
-@Logger
 public class Parsing
 {
+	private static final Logger LOGGER = Logger.getInstance(Parsing.class);
+
 	public static class SectionInfo
 	{
 		private PsiBuilder.Marker myMarker;

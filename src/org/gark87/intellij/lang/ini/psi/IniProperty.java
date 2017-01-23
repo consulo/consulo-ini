@@ -1,6 +1,5 @@
 package org.gark87.intellij.lang.ini.psi;
 
-import consulo.annotations.RequiredReadAction;
 import org.gark87.intellij.lang.ini.parsing.IniStubTokenTypes;
 import org.gark87.intellij.lang.ini.parsing.IniTokenTypes;
 import org.gark87.intellij.lang.ini.psi.stub.IniPropertyStub;
@@ -13,16 +12,28 @@ import com.intellij.navigation.ItemPresentationProviders;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiNameIdentifierOwner;
 import com.intellij.psi.PsiNamedElement;
+import com.intellij.util.ArrayFactory;
 import com.intellij.util.IncorrectOperationException;
-import consulo.lombok.annotations.ArrayFactoryFields;
+import consulo.annotations.RequiredReadAction;
 
 /**
  * @author VISTALL
  * @since 29.04.14
  */
-@ArrayFactoryFields
 public class IniProperty extends IniStubElement<IniPropertyStub> implements PsiNamedElement, PsiNameIdentifierOwner
 {
+	public static final IniProperty[] EMPTY_ARRAY = new IniProperty[0];
+
+	public static ArrayFactory<IniProperty> ARRAY_FACTORY = new ArrayFactory<IniProperty>()
+	{
+		@NotNull
+		@Override
+		public IniProperty[] create(int count)
+		{
+			return count == 0 ? EMPTY_ARRAY : new IniProperty[count];
+		}
+	};
+
 	public IniProperty(@NotNull ASTNode node)
 	{
 		super(node);
