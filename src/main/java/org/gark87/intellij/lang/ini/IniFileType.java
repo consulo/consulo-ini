@@ -36,7 +36,7 @@ public class IniFileType extends LanguageFileType
 
 	@Override
 	@NotNull
-	public String getName()
+	public String getId()
 	{
 		return "INI";
 	}

@@ -16,11 +16,11 @@
 
 package org.gark87.intellij.lang.ini.parsing.test;
 
-import com.intellij.lexer.Lexer;
-import com.intellij.psi.tree.IElementType;
-import org.gark87.intellij.lang.ini.parsing.IniLexer;
+import org.gark87.intellij.lang.ini.parsing._IniLexer;
 import org.jetbrains.annotations.NonNls;
 import org.junit.Test;
+import com.intellij.lexer.Lexer;
+import com.intellij.psi.tree.IElementType;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
@@ -31,7 +31,7 @@ public class IniLexerTest extends com.intellij.testFramework.UsefulTestCase {
     }
 
     private static void doTest(@NonNls String text, @NonNls String... expectedTokens) {
-        Lexer lexer = new IniLexer();
+        Lexer lexer = new _IniLexer();
         doTest(text, expectedTokens, lexer);
     }
 

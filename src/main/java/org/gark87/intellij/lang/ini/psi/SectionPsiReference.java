@@ -44,12 +44,5 @@ public class SectionPsiReference extends PsiReferenceBase<SectionImpl>
 		}
 		return null;
 	}
-
-	@Override
-	@NotNull
-	public Object[] getVariants()
-	{
-		return new Object[0];
-	}
 }
 
