@@ -2,7 +2,7 @@ package org.gark87.intellij.lang.ini.psi.stub.elementType;
 
 import org.gark87.intellij.lang.ini.IniLanguage;
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.stubs.IStubElementType;
@@ -15,14 +15,14 @@ import com.intellij.psi.stubs.StubElement;
  */
 public abstract class IniStubElementType<T extends StubElement, E extends PsiElement> extends IStubElementType<T, E>
 {
-	public IniStubElementType(@NotNull @NonNls String debugName)
+	public IniStubElementType(@Nonnull @NonNls String debugName)
 	{
 		super(debugName, IniLanguage.INSTANCE);
 	}
 
-	public abstract E createPsi(@NotNull ASTNode astNode);
+	public abstract E createPsi(@Nonnull ASTNode astNode);
 
-	@NotNull
+	@Nonnull
 	@Override
 	public String getExternalId()
 	{
@@ -30,7 +30,7 @@ public abstract class IniStubElementType<T extends StubElement, E extends PsiEle
 	}
 
 	@Override
-	public void indexStub(@NotNull T t, @NotNull IndexSink indexSink)
+	public void indexStub(@Nonnull T t, @Nonnull IndexSink indexSink)
 	{
 
 	}

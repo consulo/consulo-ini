@@ -16,9 +16,9 @@
 
 package org.gark87.intellij.lang.ini;
 
+import javax.annotation.Nonnull;
 import javax.swing.Icon;
 
-import org.jetbrains.annotations.NotNull;
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.fileTypes.LanguageFileType;
 
@@ -35,21 +35,21 @@ public class IniFileType extends LanguageFileType
 	}
 
 	@Override
-	@NotNull
+	@Nonnull
 	public String getId()
 	{
 		return "INI";
 	}
 
 	@Override
-	@NotNull
+	@Nonnull
 	public String getDescription()
 	{
 		return "*.ini files";
 	}
 
 	@Override
-	@NotNull
+	@Nonnull
 	public String getDefaultExtension()
 	{
 		return "ini";

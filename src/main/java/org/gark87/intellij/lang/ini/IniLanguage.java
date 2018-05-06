@@ -16,7 +16,8 @@
 
 package org.gark87.intellij.lang.ini;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.lang.Language;
 import com.intellij.openapi.fileTypes.SingleLazyInstanceSyntaxHighlighterFactory;
 import com.intellij.openapi.fileTypes.SyntaxHighlighter;
@@ -35,7 +36,7 @@ public class IniLanguage extends Language
 		SyntaxHighlighterFactory.LANGUAGE_FACTORY.addExplicitExtension(this, new SingleLazyInstanceSyntaxHighlighterFactory()
 		{
 			@Override
-			@NotNull
+			@Nonnull
 			protected SyntaxHighlighter createHighlighter()
 			{
 				return new IniHighlighter();

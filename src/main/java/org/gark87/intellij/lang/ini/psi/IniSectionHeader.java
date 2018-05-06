@@ -2,10 +2,11 @@ package org.gark87.intellij.lang.ini.psi;
 
 import java.util.List;
 
+import javax.annotation.Nonnull;
+
 import org.gark87.intellij.lang.ini.parsing.IniTokenTypes;
 import org.gark87.intellij.lang.ini.psi.stub.IniSectionHeaderStub;
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
 import consulo.annotations.RequiredReadAction;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
@@ -20,12 +21,12 @@ import com.intellij.util.containers.ContainerUtil;
  */
 public class IniSectionHeader extends IniStubElement<IniSectionHeaderStub> implements PsiNamedElement
 {
-	public IniSectionHeader(@NotNull ASTNode node)
+	public IniSectionHeader(@Nonnull ASTNode node)
 	{
 		super(node);
 	}
 
-	public IniSectionHeader(@NotNull IniSectionHeaderStub stub, @NotNull IStubElementType nodeType)
+	public IniSectionHeader(@Nonnull IniSectionHeaderStub stub, @Nonnull IStubElementType nodeType)
 	{
 		super(stub, nodeType);
 	}
@@ -45,7 +46,7 @@ public class IniSectionHeader extends IniStubElement<IniSectionHeaderStub> imple
 	}
 
 	@Override
-	public PsiElement setName(@NonNls @NotNull String name) throws IncorrectOperationException
+	public PsiElement setName(@NonNls @Nonnull String name) throws IncorrectOperationException
 	{
 		return null;
 	}

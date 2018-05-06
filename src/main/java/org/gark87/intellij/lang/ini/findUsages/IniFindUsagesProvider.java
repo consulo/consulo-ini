@@ -16,8 +16,9 @@
 
 package org.gark87.intellij.lang.ini.findUsages;
 
+import javax.annotation.Nonnull;
+
 import org.gark87.intellij.lang.ini.psi.SectionImpl;
-import org.jetbrains.annotations.NotNull;
 import com.intellij.find.impl.HelpID;
 import com.intellij.lang.cacheBuilder.WordsScanner;
 import com.intellij.lang.findUsages.FindUsagesProvider;
@@ -36,35 +37,35 @@ public class IniFindUsagesProvider implements FindUsagesProvider
 	}
 
 	@Override
-	public boolean canFindUsagesFor(@NotNull PsiElement psiElement)
+	public boolean canFindUsagesFor(@Nonnull PsiElement psiElement)
 	{
 		return psiElement instanceof SectionImpl;
 	}
 
 	@Override
-	public String getHelpId(@NotNull PsiElement psiElement)
+	public String getHelpId(@Nonnull PsiElement psiElement)
 	{
 		return HelpID.FIND_OTHER_USAGES;
 	}
 
 	@Override
-	@NotNull
-	public String getType(@NotNull PsiElement psiElement)
+	@Nonnull
+	public String getType(@Nonnull PsiElement psiElement)
 	{
 		return "section";
 	}
 
 	@Override
-	@NotNull
-	public String getDescriptiveName(@NotNull PsiElement psiElement)
+	@Nonnull
+	public String getDescriptiveName(@Nonnull PsiElement psiElement)
 	{
 		String name = ((PsiNamedElement) psiElement).getName();
 		return name == null ? "" : name;
 	}
 
 	@Override
-	@NotNull
-	public String getNodeText(@NotNull PsiElement psiElement, boolean b)
+	@Nonnull
+	public String getNodeText(@Nonnull PsiElement psiElement, boolean b)
 	{
 		return getDescriptiveName(psiElement);
 	}

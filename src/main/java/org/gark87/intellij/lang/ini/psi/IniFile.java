@@ -16,6 +16,8 @@
 
 package org.gark87.intellij.lang.ini.psi;
 
+import javax.annotation.Nonnull;
+
 import com.intellij.extapi.psi.PsiFileBase;
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.psi.FileViewProvider;
@@ -24,7 +26,6 @@ import consulo.annotations.RequiredReadAction;
 import org.gark87.intellij.lang.ini.IniFileType;
 import org.gark87.intellij.lang.ini.IniLanguage;
 import org.gark87.intellij.lang.ini.parsing.IniStubTokenTypes;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
@@ -36,7 +37,7 @@ public class IniFile extends PsiFileBase
 		super(viewProvider, IniLanguage.INSTANCE);
 	}
 
-	@NotNull
+	@Nonnull
 	@RequiredReadAction
 	public IniSection[] getSections()
 	{
@@ -49,7 +50,7 @@ public class IniFile extends PsiFileBase
 	}
 
 	@Override
-	@NotNull
+	@Nonnull
 	public FileType getFileType()
 	{
 		return IniFileType.INSTANCE;

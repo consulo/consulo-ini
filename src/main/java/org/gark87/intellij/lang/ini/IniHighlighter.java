@@ -21,7 +21,7 @@ import gnu.trove.THashMap;
 import java.util.Map;
 
 import org.gark87.intellij.lang.ini.parsing.IniTokenTypes;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import com.intellij.lang.annotation.HighlightSeverity;
 import com.intellij.lexer.Lexer;
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors;
@@ -38,7 +38,7 @@ public class IniHighlighter extends SyntaxHighlighterBase
 	private static final Map<IElementType, TextAttributesKey> keys1;
 
 	@Override
-	@NotNull
+	@Nonnull
 	public Lexer getHighlightingLexer()
 	{
 		return new IniHighlightingLexer();
@@ -82,7 +82,7 @@ public class IniHighlighter extends SyntaxHighlighterBase
 	}
 
 	@Override
-	@NotNull
+	@Nonnull
 	public TextAttributesKey[] getTokenHighlights(IElementType tokenType)
 	{
 		return pack(keys1.get(tokenType));

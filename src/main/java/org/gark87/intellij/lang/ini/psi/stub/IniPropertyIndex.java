@@ -1,7 +1,7 @@
 package org.gark87.intellij.lang.ini.psi.stub;
 
 import org.gark87.intellij.lang.ini.psi.IniProperty;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import com.intellij.psi.stubs.StringStubIndexExtension;
 import com.intellij.psi.stubs.StubIndexKey;
 
@@ -11,13 +11,13 @@ import com.intellij.psi.stubs.StubIndexKey;
  */
 public class IniPropertyIndex extends StringStubIndexExtension<IniProperty>
 {
-	@NotNull
+	@Nonnull
 	public static IniPropertyIndex getInstance()
 	{
 		return EP_NAME.findExtension(IniPropertyIndex.class);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public StubIndexKey<String, IniProperty> getKey()
 	{

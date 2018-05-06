@@ -1,9 +1,11 @@
 package consulo.ini.navigation.gotoSymbol;
 
+import javax.annotation.Nonnull;
+
 import org.gark87.intellij.lang.ini.psi.IniProperty;
 import org.gark87.intellij.lang.ini.psi.stub.IniIndexKeys;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.Nullable;
 import com.intellij.navigation.ChooseByNameContributorEx;
 import com.intellij.navigation.NavigationItem;
 import com.intellij.openapi.project.Project;
@@ -22,19 +24,19 @@ import com.intellij.util.indexing.IdFilter;
 public class IniGotoSymbolContributor implements ChooseByNameContributorEx
 {
 	@Override
-	public void processNames(@NotNull Processor<String> processor, @NotNull GlobalSearchScope scope, @Nullable IdFilter filter)
+	public void processNames(@Nonnull Processor<String> processor, @Nonnull GlobalSearchScope scope, @Nullable IdFilter filter)
 	{
 		StubIndex.getInstance().processAllKeys(IniIndexKeys.PROPERTY_KEY, processor, scope, filter);
 	}
 
 	@Override
-	public void processElementsWithName(@NotNull String name, @NotNull Processor<NavigationItem> processor, @NotNull FindSymbolParameters parameters)
+	public void processElementsWithName(@Nonnull String name, @Nonnull Processor<NavigationItem> processor, @Nonnull FindSymbolParameters parameters)
 	{
 		StubIndex.getInstance().processElements(IniIndexKeys.PROPERTY_KEY, name, parameters.getProject(), parameters.getSearchScope(),
 				parameters.getIdFilter(), IniProperty.class, processor);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public String[] getNames(Project project, boolean includeNonProjectItems)
 	{
@@ -43,7 +45,7 @@ public class IniGotoSymbolContributor implements ChooseByNameContributorEx
 		return ArrayUtil.toStringArray(processor.getResults());
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public NavigationItem[] getItemsByName(String name, String pattern, Project project, boolean includeNonProjectItems)
 	{

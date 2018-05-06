@@ -1,11 +1,12 @@
 package org.gark87.intellij.lang.ini.psi;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import org.gark87.intellij.lang.ini.parsing.IniStubTokenTypes;
 import org.gark87.intellij.lang.ini.parsing.IniTokenTypes;
 import org.gark87.intellij.lang.ini.psi.stub.IniPropertyStub;
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import com.intellij.lang.ASTNode;
 import com.intellij.navigation.ItemPresentation;
 import com.intellij.navigation.ItemPresentationProviders;
@@ -26,7 +27,7 @@ public class IniProperty extends IniStubElement<IniPropertyStub> implements PsiN
 
 	public static ArrayFactory<IniProperty> ARRAY_FACTORY = new ArrayFactory<IniProperty>()
 	{
-		@NotNull
+		@Nonnull
 		@Override
 		public IniProperty[] create(int count)
 		{
@@ -34,18 +35,18 @@ public class IniProperty extends IniStubElement<IniPropertyStub> implements PsiN
 		}
 	};
 
-	public IniProperty(@NotNull ASTNode node)
+	public IniProperty(@Nonnull ASTNode node)
 	{
 		super(node);
 	}
 
-	public IniProperty(@NotNull IniPropertyStub stub)
+	public IniProperty(@Nonnull IniPropertyStub stub)
 	{
 		super(stub, IniStubTokenTypes.PROPERTY);
 	}
 
 	@Override
-	public PsiElement setName(@NonNls @NotNull String s) throws IncorrectOperationException
+	public PsiElement setName(@NonNls @Nonnull String s) throws IncorrectOperationException
 	{
 		return null;
 	}
@@ -58,7 +59,7 @@ public class IniProperty extends IniStubElement<IniPropertyStub> implements PsiN
 		return nameIdentifier == null ? null : nameIdentifier.getText();
 	}
 
-	@NotNull
+	@Nonnull
 	@RequiredReadAction
 	public IniSection getSection()
 	{

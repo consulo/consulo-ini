@@ -18,8 +18,9 @@ package org.gark87.intellij.lang.ini.psi;
 
 import java.util.List;
 
+import javax.annotation.Nullable;
+
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.Nullable;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiNamedElement;
 import com.intellij.psi.PsiReference;

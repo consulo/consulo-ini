@@ -16,7 +16,7 @@
 
 package org.gark87.intellij.lang.ini.psi;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import com.intellij.psi.PsiReferenceBase;
 import com.intellij.psi.util.PsiTreeUtil;
 
@@ -25,7 +25,7 @@ import com.intellij.psi.util.PsiTreeUtil;
  */
 public class SectionPsiReference extends PsiReferenceBase<SectionImpl>
 {
-	public SectionPsiReference(@NotNull SectionImpl element)
+	public SectionPsiReference(@Nonnull SectionImpl element)
 	{
 		super(element);
 		psiElement = element;

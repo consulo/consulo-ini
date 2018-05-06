@@ -1,8 +1,9 @@
 package org.gark87.intellij.lang.ini.psi.stub;
 
+import javax.annotation.Nullable;
+
 import org.gark87.intellij.lang.ini.parsing.IniStubTokenTypes;
 import org.gark87.intellij.lang.ini.psi.IniProperty;
-import org.jetbrains.annotations.Nullable;
 import com.intellij.psi.stubs.NamedStubBase;
 import com.intellij.psi.stubs.StubElement;
 import com.intellij.util.io.StringRef;

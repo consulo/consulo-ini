@@ -2,10 +2,11 @@ package org.gark87.intellij.lang.ini.psi.stub.elementType;
 
 import java.io.IOException;
 
+import javax.annotation.Nonnull;
+
 import org.gark87.intellij.lang.ini.psi.IniProperty;
 import org.gark87.intellij.lang.ini.psi.stub.IniIndexKeys;
 import org.gark87.intellij.lang.ini.psi.stub.IniPropertyStub;
-import org.jetbrains.annotations.NotNull;
 import consulo.annotations.RequiredReadAction;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.stubs.IndexSink;
@@ -26,42 +27,42 @@ public class IniPropertyElementType extends IniStubElementType<IniPropertyStub, 
 	}
 
 	@Override
-	public IniProperty createPsi(@NotNull IniPropertyStub iniPropertyStub)
+	public IniProperty createPsi(@Nonnull IniPropertyStub iniPropertyStub)
 	{
 		return new IniProperty(iniPropertyStub);
 	}
 
 	@RequiredReadAction
 	@Override
-	public IniPropertyStub createStub(@NotNull IniProperty iniProperty, StubElement stubElement)
+	public IniPropertyStub createStub(@Nonnull IniProperty iniProperty, StubElement stubElement)
 	{
 		String name = iniProperty.getName();
 		return new IniPropertyStub(stubElement, name);
 	}
 
 	@Override
-	public void serialize(@NotNull IniPropertyStub iniPropertyStub, @NotNull StubOutputStream stubOutputStream) throws IOException
+	public void serialize(@Nonnull IniPropertyStub iniPropertyStub, @Nonnull StubOutputStream stubOutputStream) throws IOException
 	{
 		stubOutputStream.writeName(iniPropertyStub.getName());
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
-	public IniPropertyStub deserialize(@NotNull StubInputStream inputStream, StubElement stubElement) throws IOException
+	public IniPropertyStub deserialize(@Nonnull StubInputStream inputStream, StubElement stubElement) throws IOException
 	{
 		StringRef ref = inputStream.readName();
 		return new IniPropertyStub(stubElement, ref);
 	}
 
 	@Override
-	public IniProperty createPsi(@NotNull ASTNode astNode)
+	public IniProperty createPsi(@Nonnull ASTNode astNode)
 	{
 		return new IniProperty(astNode);
 	}
 
 	@Override
 	public void indexStub(
-			@NotNull IniPropertyStub iniPropertyStub, @NotNull IndexSink indexSink)
+			@Nonnull IniPropertyStub iniPropertyStub, @Nonnull IndexSink indexSink)
 	{
 		String name = iniPropertyStub.getName();
 		if(name == null)

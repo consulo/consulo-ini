@@ -18,9 +18,9 @@ package org.gark87.intellij.lang.ini;
 
 import java.util.Map;
 
+import javax.annotation.Nonnull;
 import javax.swing.Icon;
 
-import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.fileTypes.SyntaxHighlighter;
 import com.intellij.openapi.options.colors.AttributesDescriptor;
@@ -48,7 +48,7 @@ public class IniColorsPage implements ColorSettingsPage
 
 
 	@Override
-	@NotNull
+	@Nonnull
 	public String getDisplayName()
 	{
 		return "Ini";
@@ -61,28 +61,28 @@ public class IniColorsPage implements ColorSettingsPage
 	}
 
 	@Override
-	@NotNull
+	@Nonnull
 	public AttributesDescriptor[] getAttributeDescriptors()
 	{
 		return ATTRS;
 	}
 
 	@Override
-	@NotNull
+	@Nonnull
 	public ColorDescriptor[] getColorDescriptors()
 	{
 		return ColorDescriptor.EMPTY_ARRAY;
 	}
 
 	@Override
-	@NotNull
+	@Nonnull
 	public SyntaxHighlighter getHighlighter()
 	{
 		return new IniHighlighter();
 	}
 
 	@Override
-	@NotNull
+	@Nonnull
 	public String getDemoText()
 	{
 		return "; Comment on keys and values\n" +

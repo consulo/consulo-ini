@@ -6,7 +6,7 @@ import consulo.annotations.RequiredReadAction;
 import consulo.ide.IconDescriptorUpdaters;
 import org.gark87.intellij.lang.ini.psi.IniProperty;
 import org.gark87.intellij.lang.ini.psi.IniSection;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 
 import javax.swing.*;
 

@@ -16,9 +16,10 @@
 
 package org.gark87.intellij.lang.ini.psi;
 
+import javax.annotation.Nonnull;
+
 import consulo.annotations.RequiredReadAction;
 import org.gark87.intellij.lang.ini.IniLanguage;
-import org.jetbrains.annotations.NotNull;
 import com.intellij.extapi.psi.StubBasedPsiElementBase;
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.Language;
@@ -32,7 +33,7 @@ import com.intellij.psi.stubs.StubElement;
  */
 public class IniStubElement<T extends StubElement> extends StubBasedPsiElementBase<T>  implements StubBasedPsiElement<T>
 {
-	public IniStubElement(@org.jetbrains.annotations.NotNull ASTNode node)
+	public IniStubElement(@Nonnull ASTNode node)
 	{
 		super(node);
 	}
@@ -43,13 +44,13 @@ public class IniStubElement<T extends StubElement> extends StubBasedPsiElementBa
 		return getParentByStub();
 	}
 
-	public IniStubElement(@NotNull T stub, @NotNull IStubElementType nodeType)
+	public IniStubElement(@Nonnull T stub, @Nonnull IStubElementType nodeType)
 	{
 		super(stub, nodeType);
 	}
 
 	@RequiredReadAction
-	@NotNull
+	@Nonnull
 	@Override
 	public Language getLanguage()
 	{

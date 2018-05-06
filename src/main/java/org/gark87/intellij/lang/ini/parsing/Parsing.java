@@ -17,8 +17,8 @@
 package org.gark87.intellij.lang.ini.parsing;
 
 import org.gark87.intellij.lang.ini.IniBundle;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.lang.PsiBuilder;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.psi.tree.IElementType;
@@ -35,12 +35,12 @@ public class Parsing
 		private PsiBuilder.Marker myMarker;
 		private boolean myNotEmpty;
 
-		public SectionInfo(@NotNull PsiBuilder.Marker marker)
+		public SectionInfo(@Nonnull PsiBuilder.Marker marker)
 		{
 			myMarker = marker;
 		}
 
-		@NotNull
+		@Nonnull
 		public SectionInfo notEmpty()
 		{
 			myNotEmpty = true;

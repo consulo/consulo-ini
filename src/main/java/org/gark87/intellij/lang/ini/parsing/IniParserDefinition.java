@@ -16,6 +16,8 @@
 
 package org.gark87.intellij.lang.ini.parsing;
 
+import javax.annotation.Nonnull;
+
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.ParserDefinition;
@@ -30,7 +32,6 @@ import com.intellij.psi.tree.TokenSet;
 import consulo.lang.LanguageVersion;
 import org.gark87.intellij.lang.ini.psi.IniFile;
 import org.gark87.intellij.lang.ini.psi.stub.elementType.IniStubElementType;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
@@ -38,49 +39,49 @@ import org.jetbrains.annotations.NotNull;
 public class IniParserDefinition implements ParserDefinition
 {
 	@Override
-	@NotNull
-	public Lexer createLexer(@NotNull LanguageVersion languageVersion)
+	@Nonnull
+	public Lexer createLexer(@Nonnull LanguageVersion languageVersion)
 	{
 		return new _IniLexer();
 	}
 
 	@Override
-	@NotNull
-	public PsiParser createParser(@NotNull LanguageVersion languageVersion)
+	@Nonnull
+	public PsiParser createParser(@Nonnull LanguageVersion languageVersion)
 	{
 		return new IniParser();
 	}
 
 	@Override
-	@NotNull
+	@Nonnull
 	public IFileElementType getFileNodeType()
 	{
 		return IniElementTypes.FILE;
 	}
 
 	@Override
-	@NotNull
-	public TokenSet getWhitespaceTokens(@NotNull LanguageVersion languageVersion)
+	@Nonnull
+	public TokenSet getWhitespaceTokens(@Nonnull LanguageVersion languageVersion)
 	{
 		return IniTokenTypes.WHITESPACES;
 	}
 
 	@Override
-	@NotNull
-	public TokenSet getCommentTokens(@NotNull LanguageVersion languageVersion)
+	@Nonnull
+	public TokenSet getCommentTokens(@Nonnull LanguageVersion languageVersion)
 	{
 		return IniTokenTypes.COMMENTS;
 	}
 
 	@Override
-	@NotNull
-	public TokenSet getStringLiteralElements(@NotNull LanguageVersion languageVersion)
+	@Nonnull
+	public TokenSet getStringLiteralElements(@Nonnull LanguageVersion languageVersion)
 	{
 		return IniTokenTypes.STRINGS;
 	}
 
 	@Override
-	@NotNull
+	@Nonnull
 	public PsiElement createElement(ASTNode node)
 	{
 		final IElementType type = node.getElementType();
@@ -98,7 +99,7 @@ public class IniParserDefinition implements ParserDefinition
 	}
 
 	@Override
-	@NotNull
+	@Nonnull
 	public SpaceRequirements spaceExistanceTypeBetweenTokens(ASTNode left, ASTNode right)
 	{
 		if(left.getElementType() == IniTokenTypes.END_OF_LINE_COMMENT)

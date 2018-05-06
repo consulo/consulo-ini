@@ -16,12 +16,13 @@
 
 package org.gark87.intellij.lang.ini.parsing;
 
+import javax.annotation.Nonnull;
+
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.PsiBuilder;
 import com.intellij.lang.PsiParser;
 import com.intellij.psi.tree.IElementType;
 import consulo.lang.LanguageVersion;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
@@ -29,8 +30,8 @@ import org.jetbrains.annotations.NotNull;
 public class IniParser implements PsiParser
 {
 	@Override
-	@NotNull
-	public ASTNode parse(@NotNull IElementType root, @NotNull PsiBuilder builder, @NotNull LanguageVersion languageVersion)
+	@Nonnull
+	public ASTNode parse(@Nonnull IElementType root, @Nonnull PsiBuilder builder, @Nonnull LanguageVersion languageVersion)
 	{
 		final PsiBuilder.Marker rootMarker = builder.mark();
 		Parsing.SectionInfo sectionMarker = new Parsing.SectionInfo(builder.mark());

@@ -16,10 +16,11 @@
 
 package org.gark87.intellij.lang.ini.psi;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import org.gark87.intellij.lang.ini.parsing.IniStubTokenTypes;
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiNameIdentifierOwner;
@@ -39,7 +40,7 @@ public class IniSection extends IniStubElement<EmptyStub<IniSection>> implements
 
 	public static ArrayFactory<IniSection> ARRAY_FACTORY = new ArrayFactory<IniSection>()
 	{
-		@NotNull
+		@Nonnull
 		@Override
 		public IniSection[] create(int count)
 		{
@@ -52,7 +53,7 @@ public class IniSection extends IniStubElement<EmptyStub<IniSection>> implements
 		super(node);
 	}
 
-	public IniSection(@NotNull EmptyStub<IniSection> stub, @NotNull IStubElementType nodeType)
+	public IniSection(@Nonnull EmptyStub<IniSection> stub, @Nonnull IStubElementType nodeType)
 	{
 		super(stub, nodeType);
 	}
@@ -64,13 +65,13 @@ public class IniSection extends IniStubElement<EmptyStub<IniSection>> implements
 		return getStubOrPsiChild(IniStubTokenTypes.SECTION_HEADER);
 	}
 
-	@NotNull
+	@Nonnull
 	public SectionImpl[] getSubSections()
 	{
 		return findChildrenByClass(SectionImpl.class);
 	}
 
-	@NotNull
+	@Nonnull
 	@RequiredReadAction
 	public IniProperty[] getProperties()
 	{
@@ -93,7 +94,7 @@ public class IniSection extends IniStubElement<EmptyStub<IniSection>> implements
 	}
 
 	@Override
-	public PsiElement setName(@NonNls @NotNull String s) throws IncorrectOperationException
+	public PsiElement setName(@NonNls @Nonnull String s) throws IncorrectOperationException
 	{
 		return null;
 	}
