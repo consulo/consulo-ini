@@ -17,10 +17,10 @@
 package org.gark87.intellij.lang.ini;
 
 import javax.annotation.Nonnull;
-import javax.swing.Icon;
 
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.fileTypes.LanguageFileType;
+import consulo.ui.image.Image;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
@@ -56,7 +56,7 @@ public class IniFileType extends LanguageFileType
 	}
 
 	@Override
-	public Icon getIcon()
+	public Image getIcon()
 	{
 		return AllIcons.FileTypes.Config;
 	}

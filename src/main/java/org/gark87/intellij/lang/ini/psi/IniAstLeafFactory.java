@@ -3,11 +3,11 @@ package org.gark87.intellij.lang.ini.psi;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import org.gark87.intellij.lang.ini.parsing.IniTokenTypes;
 import com.intellij.psi.impl.source.tree.LeafElement;
 import com.intellij.psi.tree.IElementType;
 import consulo.lang.LanguageVersion;
 import consulo.psi.tree.ASTLeafFactory;
-import org.gark87.intellij.lang.ini.parsing.IniTokenTypes;
 
 /**
  * @author VISTALL
@@ -23,7 +23,7 @@ public class IniAstLeafFactory implements ASTLeafFactory
 	}
 
 	@Override
-	public boolean apply(@Nullable IElementType input)
+	public boolean test(@Nullable IElementType input)
 	{
 		return input == IniTokenTypes.SECTION;
 	}

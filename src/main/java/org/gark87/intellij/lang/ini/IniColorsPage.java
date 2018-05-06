@@ -19,7 +19,6 @@ package org.gark87.intellij.lang.ini;
 import java.util.Map;
 
 import javax.annotation.Nonnull;
-import javax.swing.Icon;
 
 import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.fileTypes.SyntaxHighlighter;
@@ -52,12 +51,6 @@ public class IniColorsPage implements ColorSettingsPage
 	public String getDisplayName()
 	{
 		return "Ini";
-	}
-
-	@Override
-	public Icon getIcon()
-	{
-		return null;
 	}
 
 	@Override
