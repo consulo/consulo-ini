@@ -1,14 +1,15 @@
 package consulo.ini.presentation;
 
+import javax.annotation.Nullable;
+import javax.swing.Icon;
+
+import org.gark87.intellij.lang.ini.psi.IniProperty;
+import org.gark87.intellij.lang.ini.psi.IniSection;
 import com.intellij.navigation.ItemPresentation;
 import com.intellij.navigation.ItemPresentationProvider;
 import consulo.annotations.RequiredReadAction;
+import consulo.awt.TargetAWT;
 import consulo.ide.IconDescriptorUpdaters;
-import org.gark87.intellij.lang.ini.psi.IniProperty;
-import org.gark87.intellij.lang.ini.psi.IniSection;
-import javax.annotation.Nullable;
-
-import javax.swing.*;
 
 /**
  * @author VISTALL
@@ -53,6 +54,6 @@ public class IniPropertyPresentation implements ItemPresentation
 	@Override
 	public Icon getIcon(boolean unused)
 	{
-		return IconDescriptorUpdaters.getIcon(myItem, 0);
+		return TargetAWT.to(IconDescriptorUpdaters.getIcon(myItem, 0));
 	}
 }
