@@ -33,15 +33,6 @@ public class IniLanguage extends Language
 	public IniLanguage()
 	{
 		super("INI", "text/ini");
-		SyntaxHighlighterFactory.LANGUAGE_FACTORY.addExplicitExtension(this, new SingleLazyInstanceSyntaxHighlighterFactory()
-		{
-			@Override
-			@Nonnull
-			protected SyntaxHighlighter createHighlighter()
-			{
-				return new IniHighlighter();
-			}
-		});
 	}
 
 	@Override

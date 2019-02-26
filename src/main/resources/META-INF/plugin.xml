@@ -13,6 +13,7 @@
 								 implementationClass="org.gark87.intellij.lang.ini.SectionManipulator"/>
 		<lang.findUsagesProvider language="INI"
 								 implementationClass="org.gark87.intellij.lang.ini.findUsages.IniFindUsagesProvider"/>
+		<lang.syntaxHighlighterFactory language="INI" implementationClass="consulo.ini.InitSyntaxHighlighterFactory" />
 		<fileTypeFactory implementation="org.gark87.intellij.lang.ini.IniFileTypeFactory"/>
 		<stubElementTypeHolder class="org.gark87.intellij.lang.ini.parsing.IniStubTokenTypes"/>
 		<stubIndex implementation="org.gark87.intellij.lang.ini.psi.stub.IniPropertyIndex" />
