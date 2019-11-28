@@ -1,14 +1,14 @@
 package consulo.ini.presentation;
 
-import javax.annotation.Nullable;
-
-import org.gark87.intellij.lang.ini.psi.IniProperty;
-import org.gark87.intellij.lang.ini.psi.IniSection;
 import com.intellij.navigation.ItemPresentation;
 import com.intellij.navigation.ItemPresentationProvider;
-import consulo.annotations.RequiredReadAction;
+import consulo.annotation.access.RequiredReadAction;
 import consulo.ide.IconDescriptorUpdaters;
 import consulo.ui.image.Image;
+import org.gark87.intellij.lang.ini.psi.IniProperty;
+import org.gark87.intellij.lang.ini.psi.IniSection;
+
+import javax.annotation.Nullable;
 
 /**
  * @author VISTALL

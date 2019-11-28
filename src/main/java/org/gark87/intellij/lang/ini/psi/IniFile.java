@@ -16,16 +16,16 @@
 
 package org.gark87.intellij.lang.ini.psi;
 
-import javax.annotation.Nonnull;
-
 import com.intellij.extapi.psi.PsiFileBase;
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.psi.FileViewProvider;
 import com.intellij.psi.stubs.StubElement;
-import consulo.annotations.RequiredReadAction;
+import consulo.annotation.access.RequiredReadAction;
 import org.gark87.intellij.lang.ini.IniFileType;
 import org.gark87.intellij.lang.ini.IniLanguage;
 import org.gark87.intellij.lang.ini.parsing.IniStubTokenTypes;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>

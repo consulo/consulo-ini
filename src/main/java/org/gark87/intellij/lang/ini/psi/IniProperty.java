@@ -1,12 +1,5 @@
 package org.gark87.intellij.lang.ini.psi;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import org.gark87.intellij.lang.ini.parsing.IniStubTokenTypes;
-import org.gark87.intellij.lang.ini.parsing.IniTokenTypes;
-import org.gark87.intellij.lang.ini.psi.stub.IniPropertyStub;
-import org.jetbrains.annotations.NonNls;
 import com.intellij.lang.ASTNode;
 import com.intellij.navigation.ItemPresentation;
 import com.intellij.navigation.ItemPresentationProviders;
@@ -15,7 +8,14 @@ import com.intellij.psi.PsiNameIdentifierOwner;
 import com.intellij.psi.PsiNamedElement;
 import com.intellij.util.ArrayFactory;
 import com.intellij.util.IncorrectOperationException;
-import consulo.annotations.RequiredReadAction;
+import consulo.annotation.access.RequiredReadAction;
+import org.gark87.intellij.lang.ini.parsing.IniStubTokenTypes;
+import org.gark87.intellij.lang.ini.parsing.IniTokenTypes;
+import org.gark87.intellij.lang.ini.psi.stub.IniPropertyStub;
+import org.jetbrains.annotations.NonNls;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 /**
  * @author VISTALL

@@ -1,19 +1,18 @@
 package org.gark87.intellij.lang.ini.psi.stub.elementType;
 
-import java.io.IOException;
-
-import javax.annotation.Nonnull;
-
-import org.gark87.intellij.lang.ini.psi.IniProperty;
-import org.gark87.intellij.lang.ini.psi.stub.IniIndexKeys;
-import org.gark87.intellij.lang.ini.psi.stub.IniPropertyStub;
-import consulo.annotations.RequiredReadAction;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.stubs.IndexSink;
 import com.intellij.psi.stubs.StubElement;
 import com.intellij.psi.stubs.StubInputStream;
 import com.intellij.psi.stubs.StubOutputStream;
 import com.intellij.util.io.StringRef;
+import consulo.annotation.access.RequiredReadAction;
+import org.gark87.intellij.lang.ini.psi.IniProperty;
+import org.gark87.intellij.lang.ini.psi.stub.IniIndexKeys;
+import org.gark87.intellij.lang.ini.psi.stub.IniPropertyStub;
+
+import javax.annotation.Nonnull;
+import java.io.IOException;
 
 /**
  * @author VISTALL

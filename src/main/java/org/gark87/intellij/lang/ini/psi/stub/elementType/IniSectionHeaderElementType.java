@@ -1,17 +1,16 @@
 package org.gark87.intellij.lang.ini.psi.stub.elementType;
 
-import java.io.IOException;
-
-import javax.annotation.Nonnull;
-
-import consulo.annotations.RequiredReadAction;
-import org.gark87.intellij.lang.ini.psi.IniSectionHeader;
-import org.gark87.intellij.lang.ini.psi.stub.IniSectionHeaderStub;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.stubs.StubElement;
 import com.intellij.psi.stubs.StubInputStream;
 import com.intellij.psi.stubs.StubOutputStream;
 import com.intellij.util.io.StringRef;
+import consulo.annotation.access.RequiredReadAction;
+import org.gark87.intellij.lang.ini.psi.IniSectionHeader;
+import org.gark87.intellij.lang.ini.psi.stub.IniSectionHeaderStub;
+
+import javax.annotation.Nonnull;
+import java.io.IOException;
 
 /**
  * @author VISTALL

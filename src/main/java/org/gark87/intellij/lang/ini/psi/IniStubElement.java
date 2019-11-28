@@ -16,10 +16,6 @@
 
 package org.gark87.intellij.lang.ini.psi;
 
-import javax.annotation.Nonnull;
-
-import consulo.annotations.RequiredReadAction;
-import org.gark87.intellij.lang.ini.IniLanguage;
 import com.intellij.extapi.psi.StubBasedPsiElementBase;
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.Language;
@@ -27,6 +23,10 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.StubBasedPsiElement;
 import com.intellij.psi.stubs.IStubElementType;
 import com.intellij.psi.stubs.StubElement;
+import consulo.annotation.access.RequiredReadAction;
+import org.gark87.intellij.lang.ini.IniLanguage;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>

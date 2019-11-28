@@ -16,11 +16,6 @@
 
 package org.gark87.intellij.lang.ini.psi;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import org.gark87.intellij.lang.ini.parsing.IniStubTokenTypes;
-import org.jetbrains.annotations.NonNls;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiNameIdentifierOwner;
@@ -29,7 +24,12 @@ import com.intellij.psi.stubs.EmptyStub;
 import com.intellij.psi.stubs.IStubElementType;
 import com.intellij.util.ArrayFactory;
 import com.intellij.util.IncorrectOperationException;
-import consulo.annotations.RequiredReadAction;
+import consulo.annotation.access.RequiredReadAction;
+import org.gark87.intellij.lang.ini.parsing.IniStubTokenTypes;
+import org.jetbrains.annotations.NonNls;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
