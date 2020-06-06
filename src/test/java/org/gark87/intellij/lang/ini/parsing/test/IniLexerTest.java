@@ -25,7 +25,7 @@ import com.intellij.psi.tree.IElementType;
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
-public class IniLexerTest extends com.intellij.testFramework.UsefulTestCase {
+public abstract class IniLexerTest extends com.intellij.testFramework.UsefulTestCase {
 
     public IniLexerTest() {
     }
