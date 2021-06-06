@@ -16,12 +16,6 @@
 
 package org.gark87.intellij.lang.ini;
 
-import gnu.trove.THashMap;
-
-import java.util.Map;
-
-import org.gark87.intellij.lang.ini.parsing.IniTokenTypes;
-import javax.annotation.Nonnull;
 import com.intellij.lang.annotation.HighlightSeverity;
 import com.intellij.lexer.Lexer;
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors;
@@ -29,6 +23,11 @@ import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterBase;
 import com.intellij.openapi.util.Pair;
 import com.intellij.psi.tree.IElementType;
+import org.gark87.intellij.lang.ini.parsing.IniTokenTypes;
+
+import javax.annotation.Nonnull;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
@@ -68,7 +67,7 @@ public class IniHighlighter extends SyntaxHighlighterBase
 
 	static
 	{
-		keys1 = new THashMap<IElementType, TextAttributesKey>();
+		keys1 = new HashMap<IElementType, TextAttributesKey>();
 
 		keys1.put(IniTokenTypes.VALUE_CHARACTERS, INI_VALUE);
 		keys1.put(IniTokenTypes.END_OF_LINE_COMMENT, INI_COMMENT);
@@ -88,8 +87,7 @@ public class IniHighlighter extends SyntaxHighlighterBase
 		return pack(keys1.get(tokenType));
 	}
 
-	public static final Map<TextAttributesKey, Pair<String, HighlightSeverity>> DISPLAY_NAMES = new THashMap<TextAttributesKey, Pair<String,
-			HighlightSeverity>>(6);
+	public static final Map<TextAttributesKey, Pair<String, HighlightSeverity>> DISPLAY_NAMES = new HashMap<>();
 
 	static
 	{

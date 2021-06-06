@@ -16,12 +16,7 @@
 
 package org.gark87.intellij.lang.ini;
 
-import javax.annotation.Nonnull;
-
 import com.intellij.lang.Language;
-import com.intellij.openapi.fileTypes.SingleLazyInstanceSyntaxHighlighterFactory;
-import com.intellij.openapi.fileTypes.SyntaxHighlighter;
-import com.intellij.openapi.fileTypes.SyntaxHighlighterFactory;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>

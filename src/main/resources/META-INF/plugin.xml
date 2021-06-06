@@ -1,4 +1,4 @@
-<idea-plugin>
+<consulo-plugin>
 	<id>consulo.ini</id>
 	<name>*.ini</name>
 	<version>SNAPSHOT</version>
@@ -23,4 +23,4 @@
 								  implementationClass="consulo.ini.presentation.IniPropertyPresentation$Provider" />
 		<iconDescriptorUpdater implementation="consulo.ini.IniIconDescriptorUpdater" />
 	</extensions>
-</idea-plugin>
+</consulo-plugin>
