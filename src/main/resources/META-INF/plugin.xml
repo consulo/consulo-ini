@@ -3,6 +3,9 @@
 	<name>*.ini</name>
 	<version>SNAPSHOT</version>
 	<vendor>gark87</vendor>
+	<tags>
+		<tag>markup.language</tag>
+	</tags>
 
 	<extensions defaultExtensionNs="com.intellij">
 		<lang.parserDefinition language="INI"
