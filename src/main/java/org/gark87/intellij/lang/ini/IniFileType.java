@@ -16,11 +16,12 @@
 
 package org.gark87.intellij.lang.ini;
 
-import javax.annotation.Nonnull;
-
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.fileTypes.LanguageFileType;
+import consulo.localize.LocalizeValue;
 import consulo.ui.image.Image;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
@@ -43,9 +44,9 @@ public class IniFileType extends LanguageFileType
 
 	@Override
 	@Nonnull
-	public String getDescription()
+	public LocalizeValue getDescription()
 	{
-		return "*.ini files";
+		return LocalizeValue.localizeTODO("*.ini files");
 	}
 
 	@Override
