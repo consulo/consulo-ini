@@ -1,4 +1,4 @@
-<consulo-plugin>
+<consulo-plugin url="https://github.com/consulo/consulo-ini">
 	<id>consulo.ini</id>
 	<name>*.ini</name>
 	<version>SNAPSHOT</version>
