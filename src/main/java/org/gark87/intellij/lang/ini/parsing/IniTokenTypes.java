@@ -16,10 +16,10 @@
 
 package org.gark87.intellij.lang.ini.parsing;
 
+import consulo.language.ast.IElementType;
+import consulo.language.ast.TokenSet;
+import consulo.language.ast.TokenType;
 import org.gark87.intellij.lang.ini.IniLanguage;
-import com.intellij.psi.TokenType;
-import com.intellij.psi.tree.IElementType;
-import com.intellij.psi.tree.TokenSet;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
@@ -44,5 +44,4 @@ public interface IniTokenTypes
 	TokenSet STRINGS = TokenSet.create(IniTokenTypes.QUOTED_STRING);
 	TokenSet WHITESPACES = TokenSet.create(WHITE_SPACE);
 	TokenSet SECTIONS = TokenSet.create(IniTokenTypes.SECTION);
-
 }

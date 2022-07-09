@@ -1,14 +1,14 @@
 package org.gark87.intellij.lang.ini.psi.stub.elementType;
 
-import javax.annotation.Nonnull;
-
-import com.intellij.lang.ASTNode;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.stubs.EmptyStub;
-import com.intellij.psi.stubs.EmptyStubElementType;
-import consulo.psi.tree.IElementTypeAsPsiFactory;
-import org.gark87.intellij.lang.ini.IniLanguage;
+import consulo.language.ast.ASTNode;
+import consulo.language.ast.IElementTypeAsPsiFactory;
+import consulo.language.psi.PsiElement;
+import consulo.language.psi.stub.EmptyStub;
+import consulo.language.psi.stub.EmptyStubElementType;
 import org.gark87.intellij.lang.ini.psi.IniSection;
+import org.gark87.intellij.lang.ini.IniLanguage;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author VISTALL
@@ -18,7 +18,7 @@ public class IniSectionElementType extends EmptyStubElementType<IniSection> impl
 {
 	public IniSectionElementType()
 	{
-		super("INI_SECTION", IniLanguage.INSTANCE);
+		super("SECTION", IniLanguage.INSTANCE);
 	}
 
 	@Override

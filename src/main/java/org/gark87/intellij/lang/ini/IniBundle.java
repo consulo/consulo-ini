@@ -16,8 +16,8 @@
 
 package org.gark87.intellij.lang.ini;
 
+import consulo.component.util.localize.AbstractBundle;
 import org.jetbrains.annotations.PropertyKey;
-import com.intellij.AbstractBundle;
 
 public class IniBundle extends AbstractBundle
 {

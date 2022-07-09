@@ -1,7 +1,7 @@
 package org.gark87.intellij.lang.ini.parsing;
 
-import com.intellij.lexer.LexerBase;
-import com.intellij.psi.tree.IElementType;
+import consulo.language.lexer.LexerBase;
+import consulo.language.ast.IElementType;
 
 %%
 

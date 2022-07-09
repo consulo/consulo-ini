@@ -1,9 +1,8 @@
 package consulo.ini.presentation;
 
-import com.intellij.navigation.ItemPresentation;
-import com.intellij.navigation.ItemPresentationProvider;
 import consulo.annotation.access.RequiredReadAction;
-import consulo.ide.IconDescriptorUpdaters;
+import consulo.language.icon.IconDescriptorUpdaters;
+import consulo.navigation.ItemPresentation;
 import consulo.ui.image.Image;
 import org.gark87.intellij.lang.ini.psi.IniProperty;
 import org.gark87.intellij.lang.ini.psi.IniSection;
@@ -16,15 +15,6 @@ import javax.annotation.Nullable;
  */
 public class IniPropertyPresentation implements ItemPresentation
 {
-	public static class Provider implements ItemPresentationProvider<IniProperty>
-	{
-		@Override
-		public ItemPresentation getPresentation(IniProperty item)
-		{
-			return new IniPropertyPresentation(item);
-		}
-	}
-
 	private IniProperty myItem;
 
 	public IniPropertyPresentation(IniProperty item)

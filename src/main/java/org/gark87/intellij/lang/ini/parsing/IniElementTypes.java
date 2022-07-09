@@ -16,10 +16,10 @@
 
 package org.gark87.intellij.lang.ini.parsing;
 
+import consulo.language.ast.IElementType;
+import consulo.language.ast.IFileElementType;
+import consulo.language.psi.stub.IStubFileElementType;
 import org.gark87.intellij.lang.ini.IniLanguage;
-import com.intellij.psi.tree.IElementType;
-import com.intellij.psi.tree.IFileElementType;
-import com.intellij.psi.tree.IStubFileElementType;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>

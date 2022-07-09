@@ -16,13 +16,13 @@
 
 package org.gark87.intellij.lang.ini;
 
-import com.intellij.lang.annotation.HighlightSeverity;
-import com.intellij.lexer.Lexer;
-import com.intellij.openapi.editor.DefaultLanguageHighlighterColors;
-import com.intellij.openapi.editor.colors.TextAttributesKey;
-import com.intellij.openapi.fileTypes.SyntaxHighlighterBase;
-import com.intellij.openapi.util.Pair;
-import com.intellij.psi.tree.IElementType;
+import consulo.codeEditor.DefaultLanguageHighlighterColors;
+import consulo.colorScheme.TextAttributesKey;
+import consulo.language.ast.IElementType;
+import consulo.language.editor.annotation.HighlightSeverity;
+import consulo.language.editor.highlight.SyntaxHighlighterBase;
+import consulo.language.lexer.Lexer;
+import consulo.util.lang.Pair;
 import org.gark87.intellij.lang.ini.parsing.IniTokenTypes;
 
 import javax.annotation.Nonnull;

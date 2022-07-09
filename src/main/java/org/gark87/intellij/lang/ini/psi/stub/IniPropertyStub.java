@@ -1,12 +1,12 @@
 package org.gark87.intellij.lang.ini.psi.stub;
 
-import javax.annotation.Nullable;
-
+import consulo.index.io.StringRef;
+import consulo.language.psi.stub.NamedStubBase;
+import consulo.language.psi.stub.StubElement;
 import org.gark87.intellij.lang.ini.parsing.IniStubTokenTypes;
 import org.gark87.intellij.lang.ini.psi.IniProperty;
-import com.intellij.psi.stubs.NamedStubBase;
-import com.intellij.psi.stubs.StubElement;
-import com.intellij.util.io.StringRef;
+
+import javax.annotation.Nullable;
 
 /**
  * @author VISTALL

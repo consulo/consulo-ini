@@ -1,13 +1,14 @@
 package org.gark87.intellij.lang.ini.psi.stub.elementType;
 
+import consulo.language.ast.ASTNode;
+import consulo.language.psi.PsiElement;
+import consulo.language.psi.stub.IStubElementType;
+import consulo.language.psi.stub.IndexSink;
+import consulo.language.psi.stub.StubElement;
 import org.gark87.intellij.lang.ini.IniLanguage;
 import org.jetbrains.annotations.NonNls;
+
 import javax.annotation.Nonnull;
-import com.intellij.lang.ASTNode;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.stubs.IStubElementType;
-import com.intellij.psi.stubs.IndexSink;
-import com.intellij.psi.stubs.StubElement;
 
 /**
  * @author VISTALL

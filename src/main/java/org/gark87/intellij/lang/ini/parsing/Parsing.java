@@ -16,13 +16,13 @@
 
 package org.gark87.intellij.lang.ini.parsing;
 
+import consulo.language.ast.IElementType;
+import consulo.language.parser.PsiBuilder;
+import consulo.logging.Logger;
 import org.gark87.intellij.lang.ini.IniBundle;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import com.intellij.lang.PsiBuilder;
-import com.intellij.openapi.diagnostic.Logger;
-import com.intellij.psi.tree.IElementType;
-
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */

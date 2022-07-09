@@ -16,13 +16,16 @@
 
 package org.gark87.intellij.lang.ini;
 
+import consulo.annotation.component.ExtensionImpl;
+import consulo.virtualFileSystem.fileType.FileTypeConsumer;
+import consulo.virtualFileSystem.fileType.FileTypeFactory;
+
 import javax.annotation.Nonnull;
-import com.intellij.openapi.fileTypes.FileTypeConsumer;
-import com.intellij.openapi.fileTypes.FileTypeFactory;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
+@ExtensionImpl
 public class IniFileTypeFactory extends FileTypeFactory
 {
 	@Override

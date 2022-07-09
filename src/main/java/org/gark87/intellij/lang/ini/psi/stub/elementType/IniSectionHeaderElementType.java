@@ -1,11 +1,11 @@
 package org.gark87.intellij.lang.ini.psi.stub.elementType;
 
-import com.intellij.lang.ASTNode;
-import com.intellij.psi.stubs.StubElement;
-import com.intellij.psi.stubs.StubInputStream;
-import com.intellij.psi.stubs.StubOutputStream;
-import com.intellij.util.io.StringRef;
 import consulo.annotation.access.RequiredReadAction;
+import consulo.index.io.StringRef;
+import consulo.language.ast.ASTNode;
+import consulo.language.psi.stub.StubElement;
+import consulo.language.psi.stub.StubInputStream;
+import consulo.language.psi.stub.StubOutputStream;
 import org.gark87.intellij.lang.ini.psi.IniSectionHeader;
 import org.gark87.intellij.lang.ini.psi.stub.IniSectionHeaderStub;
 
@@ -20,7 +20,7 @@ public class IniSectionHeaderElementType extends IniStubElementType<IniSectionHe
 {
 	public IniSectionHeaderElementType()
 	{
-		super("INI_SECTION_HEADER");
+		super("SECTION_HEADER");
 	}
 
 	@Override

@@ -16,9 +16,10 @@
 
 package org.gark87.intellij.lang.ini.psi;
 
+import consulo.language.psi.PsiReferenceBase;
+import consulo.language.psi.util.PsiTreeUtil;
+
 import javax.annotation.Nonnull;
-import com.intellij.psi.PsiReferenceBase;
-import com.intellij.psi.util.PsiTreeUtil;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>

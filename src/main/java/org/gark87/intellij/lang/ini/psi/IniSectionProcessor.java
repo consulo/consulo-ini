@@ -16,8 +16,8 @@
 
 package org.gark87.intellij.lang.ini.psi;
 
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.search.PsiElementProcessor;
+import consulo.language.psi.PsiElement;
+import consulo.language.psi.resolve.PsiElementProcessor;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
