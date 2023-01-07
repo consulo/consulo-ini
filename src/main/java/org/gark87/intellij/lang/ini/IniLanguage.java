@@ -16,7 +16,7 @@
 
 package org.gark87.intellij.lang.ini;
 
-import com.intellij.lang.Language;
+import consulo.language.Language;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>

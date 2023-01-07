@@ -16,44 +16,23 @@
 
 package org.gark87.intellij.lang.ini.psi;
 
-import com.intellij.extapi.psi.StubBasedPsiElementBase;
-import com.intellij.lang.ASTNode;
-import com.intellij.lang.Language;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.StubBasedPsiElement;
-import com.intellij.psi.stubs.IStubElementType;
-import com.intellij.psi.stubs.StubElement;
-import consulo.annotation.access.RequiredReadAction;
-import org.gark87.intellij.lang.ini.IniLanguage;
+import consulo.language.ast.ASTNode;
+import consulo.language.impl.psi.stub.StubBasedPsiElementBase;
+import consulo.language.psi.StubBasedPsiElement;
+import consulo.language.psi.stub.IStubElementType;
+import consulo.language.psi.stub.StubElement;
 
 import javax.annotation.Nonnull;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
-public class IniStubElement<T extends StubElement> extends StubBasedPsiElementBase<T>  implements StubBasedPsiElement<T>
-{
-	public IniStubElement(@Nonnull ASTNode node)
-	{
-		super(node);
-	}
+public class IniStubElement<T extends StubElement> extends StubBasedPsiElementBase<T> implements StubBasedPsiElement<T> {
+    public IniStubElement(@Nonnull ASTNode node) {
+        super(node);
+    }
 
-	@Override
-	public PsiElement getParent()
-	{
-		return getParentByStub();
-	}
-
-	public IniStubElement(@Nonnull T stub, @Nonnull IStubElementType nodeType)
-	{
-		super(stub, nodeType);
-	}
-
-	@RequiredReadAction
-	@Nonnull
-	@Override
-	public Language getLanguage()
-	{
-		return IniLanguage.INSTANCE;
-	}
+    public IniStubElement(@Nonnull T stub, @Nonnull IStubElementType nodeType) {
+        super(stub, nodeType);
+    }
 }

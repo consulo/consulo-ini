@@ -16,15 +16,15 @@
 
 package org.gark87.intellij.lang.ini.psi;
 
-import com.intellij.lang.ASTNode;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiNameIdentifierOwner;
-import com.intellij.psi.PsiNamedElement;
-import com.intellij.psi.stubs.EmptyStub;
-import com.intellij.psi.stubs.IStubElementType;
-import com.intellij.util.ArrayFactory;
-import com.intellij.util.IncorrectOperationException;
 import consulo.annotation.access.RequiredReadAction;
+import consulo.language.ast.ASTNode;
+import consulo.language.psi.PsiElement;
+import consulo.language.psi.PsiNameIdentifierOwner;
+import consulo.language.psi.PsiNamedElement;
+import consulo.language.psi.stub.EmptyStub;
+import consulo.language.psi.stub.IStubElementType;
+import consulo.language.util.IncorrectOperationException;
+import consulo.util.collection.ArrayFactory;
 import org.gark87.intellij.lang.ini.parsing.IniStubTokenTypes;
 import org.jetbrains.annotations.NonNls;
 

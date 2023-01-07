@@ -16,36 +16,26 @@
 
 package org.gark87.intellij.lang.ini.findUsages;
 
-import javax.annotation.Nonnull;
-
+import consulo.annotation.component.ExtensionImpl;
+import consulo.language.Language;
+import consulo.language.findUsage.FindUsagesProvider;
+import consulo.language.psi.PsiElement;
+import consulo.language.psi.PsiNamedElement;
+import org.gark87.intellij.lang.ini.IniLanguage;
 import org.gark87.intellij.lang.ini.psi.SectionImpl;
-import com.intellij.find.impl.HelpID;
-import com.intellij.lang.cacheBuilder.WordsScanner;
-import com.intellij.lang.findUsages.FindUsagesProvider;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiNamedElement;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
+@ExtensionImpl
 public class IniFindUsagesProvider implements FindUsagesProvider
 {
-	@Override
-	public WordsScanner getWordsScanner()
-	{
-		return new IniWordsScanner();
-	}
-
 	@Override
 	public boolean canFindUsagesFor(@Nonnull PsiElement psiElement)
 	{
 		return psiElement instanceof SectionImpl;
-	}
-
-	@Override
-	public String getHelpId(@Nonnull PsiElement psiElement)
-	{
-		return HelpID.FIND_OTHER_USAGES;
 	}
 
 	@Override
@@ -68,5 +58,12 @@ public class IniFindUsagesProvider implements FindUsagesProvider
 	public String getNodeText(@Nonnull PsiElement psiElement, boolean b)
 	{
 		return getDescriptiveName(psiElement);
+	}
+
+	@Nonnull
+	@Override
+	public Language getLanguage()
+	{
+		return IniLanguage.INSTANCE;
 	}
 }

@@ -1,7 +1,7 @@
 package org.gark87.intellij.lang.ini.psi.stub;
 
+import consulo.language.psi.stub.StubIndexKey;
 import org.gark87.intellij.lang.ini.psi.IniProperty;
-import com.intellij.psi.stubs.StubIndexKey;
 
 /**
  * @author VISTALL

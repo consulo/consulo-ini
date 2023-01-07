@@ -16,19 +16,18 @@
 
 package org.gark87.intellij.lang.ini.psi;
 
-import java.util.List;
+import consulo.language.ast.IElementType;
+import consulo.language.impl.psi.LeafPsiElement;
+import consulo.language.psi.PsiElement;
+import consulo.language.psi.PsiNamedElement;
+import consulo.language.psi.PsiReference;
+import consulo.language.util.IncorrectOperationException;
+import consulo.util.collection.ArrayUtil;
+import consulo.util.collection.SmartList;
+import org.jetbrains.annotations.NonNls;
 
 import javax.annotation.Nullable;
-
-import org.jetbrains.annotations.NonNls;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiNamedElement;
-import com.intellij.psi.PsiReference;
-import com.intellij.psi.impl.source.tree.LeafPsiElement;
-import com.intellij.psi.tree.IElementType;
-import com.intellij.util.ArrayUtil;
-import com.intellij.util.IncorrectOperationException;
-import com.intellij.util.SmartList;
+import java.util.List;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>

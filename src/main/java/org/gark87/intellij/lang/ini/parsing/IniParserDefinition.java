@@ -16,26 +16,30 @@
 
 package org.gark87.intellij.lang.ini.parsing;
 
-import javax.annotation.Nonnull;
-
-import com.intellij.extapi.psi.ASTWrapperPsiElement;
-import com.intellij.lang.ASTNode;
-import com.intellij.lang.ParserDefinition;
-import com.intellij.lang.PsiParser;
-import com.intellij.lexer.Lexer;
-import com.intellij.psi.FileViewProvider;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiFile;
-import com.intellij.psi.tree.IElementType;
-import com.intellij.psi.tree.IFileElementType;
-import com.intellij.psi.tree.TokenSet;
-import consulo.lang.LanguageVersion;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.language.Language;
+import consulo.language.ast.ASTNode;
+import consulo.language.ast.IElementType;
+import consulo.language.ast.IFileElementType;
+import consulo.language.ast.TokenSet;
+import consulo.language.file.FileViewProvider;
+import consulo.language.impl.psi.ASTWrapperPsiElement;
+import consulo.language.lexer.Lexer;
+import consulo.language.parser.ParserDefinition;
+import consulo.language.parser.PsiParser;
+import consulo.language.psi.PsiElement;
+import consulo.language.psi.PsiFile;
+import consulo.language.version.LanguageVersion;
+import org.gark87.intellij.lang.ini.IniLanguage;
 import org.gark87.intellij.lang.ini.psi.IniFile;
 import org.gark87.intellij.lang.ini.psi.stub.elementType.IniStubElementType;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
+@ExtensionImpl
 public class IniParserDefinition implements ParserDefinition
 {
 	@Override
@@ -90,6 +94,13 @@ public class IniParserDefinition implements ParserDefinition
 			return ((IniStubElementType) type).createPsi(node);
 		}
 		return new ASTWrapperPsiElement(node);
+	}
+
+	@Nonnull
+	@Override
+	public Language getLanguage()
+	{
+		return IniLanguage.INSTANCE;
 	}
 
 	@Override

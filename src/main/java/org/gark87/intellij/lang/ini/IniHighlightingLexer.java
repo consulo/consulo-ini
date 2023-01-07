@@ -16,8 +16,8 @@
 
 package org.gark87.intellij.lang.ini;
 
+import consulo.language.lexer.LayeredLexer;
 import org.gark87.intellij.lang.ini.parsing._IniLexer;
-import com.intellij.lexer.LayeredLexer;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>

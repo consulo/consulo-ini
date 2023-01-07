@@ -16,14 +16,18 @@
 
 package org.gark87.intellij.lang.ini;
 
+import consulo.annotation.component.ExtensionImpl;
+import consulo.document.util.TextRange;
+import consulo.language.psi.AbstractElementManipulator;
+import consulo.language.util.IncorrectOperationException;
 import org.gark87.intellij.lang.ini.psi.SectionImpl;
-import com.intellij.openapi.util.TextRange;
-import com.intellij.psi.AbstractElementManipulator;
-import com.intellij.util.IncorrectOperationException;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
+@ExtensionImpl
 public class SectionManipulator extends AbstractElementManipulator<SectionImpl>
 {
 	@Override
@@ -32,6 +36,13 @@ public class SectionManipulator extends AbstractElementManipulator<SectionImpl>
 		final String oldText = element.getText();
 		String newText = oldText.substring(0, range.getStartOffset()) + newContent + oldText.substring(range.getEndOffset());
 		return (SectionImpl) element.replaceWithText(newText);
+	}
+
+	@Nonnull
+	@Override
+	public Class<SectionImpl> getElementClass()
+	{
+		return SectionImpl.class;
 	}
 }
 
