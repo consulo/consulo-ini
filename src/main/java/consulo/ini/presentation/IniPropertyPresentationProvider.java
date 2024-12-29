@@ -5,7 +5,7 @@ import consulo.navigation.ItemPresentation;
 import consulo.navigation.ItemPresentationProvider;
 import org.gark87.intellij.lang.ini.psi.IniProperty;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 @ExtensionImpl
 public class IniPropertyPresentationProvider implements ItemPresentationProvider<IniProperty> {

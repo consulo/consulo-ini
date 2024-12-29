@@ -14,8 +14,8 @@ import org.gark87.intellij.lang.ini.parsing.IniTokenTypes;
 import org.gark87.intellij.lang.ini.psi.stub.IniPropertyStub;
 import org.jetbrains.annotations.NonNls;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * @author VISTALL

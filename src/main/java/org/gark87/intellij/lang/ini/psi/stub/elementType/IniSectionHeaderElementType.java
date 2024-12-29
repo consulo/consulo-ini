@@ -9,7 +9,7 @@ import consulo.language.psi.stub.StubOutputStream;
 import org.gark87.intellij.lang.ini.psi.IniSectionHeader;
 import org.gark87.intellij.lang.ini.psi.stub.IniSectionHeaderStub;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.io.IOException;
 
 /**

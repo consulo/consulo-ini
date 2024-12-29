@@ -11,7 +11,7 @@ import org.gark87.intellij.lang.ini.parsing.IniTokenTypes;
 import org.gark87.intellij.lang.ini.psi.stub.IniSectionHeaderStub;
 import org.jetbrains.annotations.NonNls;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.util.List;
 
 /**

@@ -7,7 +7,7 @@ import consulo.language.icon.IconDescriptorUpdater;
 import consulo.language.psi.PsiElement;
 import org.gark87.intellij.lang.ini.psi.IniProperty;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * @author VISTALL

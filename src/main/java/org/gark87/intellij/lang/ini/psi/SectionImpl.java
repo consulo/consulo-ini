@@ -26,7 +26,7 @@ import consulo.util.collection.ArrayUtil;
 import consulo.util.collection.SmartList;
 import org.jetbrains.annotations.NonNls;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 import java.util.List;
 
 /**

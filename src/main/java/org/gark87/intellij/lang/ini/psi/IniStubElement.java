@@ -22,7 +22,7 @@ import consulo.language.psi.StubBasedPsiElement;
 import consulo.language.psi.stub.IStubElementType;
 import consulo.language.psi.stub.StubElement;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>

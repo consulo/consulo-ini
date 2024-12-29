@@ -7,8 +7,8 @@ import consulo.language.impl.ast.LeafElement;
 import consulo.language.version.LanguageVersion;
 import org.gark87.intellij.lang.ini.parsing.IniTokenTypes;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * @author VISTALL

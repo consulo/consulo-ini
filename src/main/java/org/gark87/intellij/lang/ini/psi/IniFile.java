@@ -25,7 +25,7 @@ import org.gark87.intellij.lang.ini.IniFileType;
 import org.gark87.intellij.lang.ini.IniLanguage;
 import org.gark87.intellij.lang.ini.parsing.IniStubTokenTypes;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>

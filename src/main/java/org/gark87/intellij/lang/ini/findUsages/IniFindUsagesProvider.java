@@ -24,7 +24,7 @@ import consulo.language.psi.PsiNamedElement;
 import org.gark87.intellij.lang.ini.IniLanguage;
 import org.gark87.intellij.lang.ini.psi.SectionImpl;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>

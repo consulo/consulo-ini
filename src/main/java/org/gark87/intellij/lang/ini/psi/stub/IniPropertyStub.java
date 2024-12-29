@@ -6,7 +6,7 @@ import consulo.language.psi.stub.StubElement;
 import org.gark87.intellij.lang.ini.parsing.IniStubTokenTypes;
 import org.gark87.intellij.lang.ini.psi.IniProperty;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
 /**
  * @author VISTALL

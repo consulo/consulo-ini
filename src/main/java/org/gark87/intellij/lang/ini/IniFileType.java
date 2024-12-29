@@ -16,12 +16,11 @@
 
 package org.gark87.intellij.lang.ini;
 
-import consulo.application.AllIcons;
 import consulo.language.file.LanguageFileType;
 import consulo.localize.LocalizeValue;
+import consulo.platform.base.icon.PlatformIconGroup;
 import consulo.ui.image.Image;
-
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
@@ -59,6 +58,6 @@ public class IniFileType extends LanguageFileType
 	@Override
 	public Image getIcon()
 	{
-		return AllIcons.FileTypes.Config;
+		return PlatformIconGroup.filetypesConfig();
 	}
 }

@@ -8,7 +8,7 @@ import consulo.language.psi.stub.StubElement;
 import org.gark87.intellij.lang.ini.IniLanguage;
 import org.jetbrains.annotations.NonNls;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * @author VISTALL

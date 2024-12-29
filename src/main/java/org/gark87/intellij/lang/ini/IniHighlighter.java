@@ -25,7 +25,7 @@ import consulo.language.lexer.Lexer;
 import consulo.util.lang.Pair;
 import org.gark87.intellij.lang.ini.parsing.IniTokenTypes;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.util.HashMap;
 import java.util.Map;
 

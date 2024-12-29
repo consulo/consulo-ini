@@ -11,7 +11,7 @@ import org.gark87.intellij.lang.ini.psi.IniProperty;
 import org.gark87.intellij.lang.ini.psi.stub.IniIndexKeys;
 import org.gark87.intellij.lang.ini.psi.stub.IniPropertyStub;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.io.IOException;
 
 /**

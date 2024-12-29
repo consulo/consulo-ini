@@ -19,7 +19,7 @@ package org.gark87.intellij.lang.ini.psi;
 import consulo.language.psi.PsiReferenceBase;
 import consulo.language.psi.util.PsiTreeUtil;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */

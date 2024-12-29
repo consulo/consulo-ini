@@ -7,7 +7,7 @@ import consulo.language.editor.highlight.SyntaxHighlighter;
 import org.gark87.intellij.lang.ini.IniHighlighter;
 import org.gark87.intellij.lang.ini.IniLanguage;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 /**
  * @author VISTALL
  * @since 2019-02-26
