@@ -16,11 +16,10 @@
 
 package org.gark87.intellij.lang.ini.parsing;
 
+import consulo.ini.localize.IniLocalize;
 import consulo.language.ast.IElementType;
 import consulo.language.parser.PsiBuilder;
 import consulo.logging.Logger;
-import org.gark87.intellij.lang.ini.IniBundle;
-
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 
@@ -78,7 +77,7 @@ public class Parsing
 		else
 		{
 			builder.advanceLexer();
-			builder.error(IniBundle.message("parsing.ini.unexpected.start"));
+			builder.error(IniLocalize.parsingIniUnexpectedStart());
 		}
 		return sectionMarker;
 	}
@@ -101,7 +100,7 @@ public class Parsing
 		{
 			if(afterSeparator && (tokenType == IniTokenTypes.SECTION_SEPARATOR))
 			{
-				builder.error(IniBundle.message("parsing.ini.consecutive.separators"));
+				builder.error(IniLocalize.parsingIniConsecutiveSeparators());
 			}
 			afterSeparator = (tokenType == IniTokenTypes.SECTION_SEPARATOR);
 			builder.advanceLexer();
@@ -109,7 +108,7 @@ public class Parsing
 		}
 		if(tokenType != IniTokenTypes.RBRACKET)
 		{
-			builder.error(IniBundle.message("parsing.ini.expect.bracket"));
+			builder.error(IniLocalize.parsingIniExpectBracket());
 		}
 		if(tokenType != IniTokenTypes.EOL)   // no errors should be after EOL
 		{
@@ -154,7 +153,7 @@ public class Parsing
 	{
 		while(!builder.eof() && builder.getTokenType() != IniTokenTypes.EOL)
 		{
-			builder.error(IniBundle.message("parsing.ini.non.eol"));
+			builder.error(IniLocalize.parsingIniNonEol());
 			builder.advanceLexer();
 		}
 		skipEOLs(builder);

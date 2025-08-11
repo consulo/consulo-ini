@@ -1,0 +1,28 @@
+ini:
+    text: Ini
+options.ini.attribute.descriptor.comment:
+    text: Comment
+options.ini.attribute.descriptor.property.key:
+    text: Property key
+options.ini.attribute.descriptor.property.separator:
+    text: Property separator
+options.ini.attribute.descriptor.property.value:
+    text: Property value
+options.ini.attribute.descriptor.quoted.string:
+    text: Quoted string
+options.ini.attribute.descriptor.section:
+    text: Section name
+options.ini.attribute.descriptor.section.brackets:
+    text: Section brackets(`[', `]')
+options.ini.attribute.descriptor.section.separator:
+    text: Section separator(`.', `:', `\')
+parsing.ini.consecutive.separators:
+    text: Consecutive separators are not allowed
+parsing.ini.expect.bracket:
+    text: '] is expected here'
+parsing.ini.expect.section:
+    text: Section name is expected here
+parsing.ini.non.eol:
+    text: End of line is expected here
+parsing.ini.unexpected.start:
+    text: Unexpected statement start

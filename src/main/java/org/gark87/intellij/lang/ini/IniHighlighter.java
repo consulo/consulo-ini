@@ -18,90 +18,83 @@ package org.gark87.intellij.lang.ini;
 
 import consulo.codeEditor.DefaultLanguageHighlighterColors;
 import consulo.colorScheme.TextAttributesKey;
+import consulo.ini.localize.IniLocalize;
 import consulo.language.ast.IElementType;
 import consulo.language.editor.annotation.HighlightSeverity;
 import consulo.language.editor.highlight.SyntaxHighlighterBase;
 import consulo.language.lexer.Lexer;
+import consulo.localize.LocalizeValue;
 import consulo.util.lang.Pair;
+import jakarta.annotation.Nonnull;
 import org.gark87.intellij.lang.ini.parsing.IniTokenTypes;
 
-import jakarta.annotation.Nonnull;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
-public class IniHighlighter extends SyntaxHighlighterBase
-{
-	private static final Map<IElementType, TextAttributesKey> keys1;
+public class IniHighlighter extends SyntaxHighlighterBase {
+    private static final Map<IElementType, TextAttributesKey> keys1;
 
-	@Override
-	@Nonnull
-	public Lexer getHighlightingLexer()
-	{
-		return new IniHighlightingLexer();
-	}
+    @Override
+    @Nonnull
+    public Lexer getHighlightingLexer() {
+        return new IniHighlightingLexer();
+    }
 
-	public static final TextAttributesKey INI_KEY = TextAttributesKey.createTextAttributesKey("INI.KEY", DefaultLanguageHighlighterColors.NUMBER);
+    public static final TextAttributesKey INI_KEY = TextAttributesKey.createTextAttributesKey("INI.KEY", DefaultLanguageHighlighterColors.NUMBER);
 
-	public static final TextAttributesKey INI_VALUE = TextAttributesKey.createTextAttributesKey("INI.VALUE", DefaultLanguageHighlighterColors.COMMA);
+    public static final TextAttributesKey INI_VALUE = TextAttributesKey.createTextAttributesKey("INI.VALUE", DefaultLanguageHighlighterColors.COMMA);
 
-	public static final TextAttributesKey INI_SECTION = TextAttributesKey.createTextAttributesKey("INI.SECTION",
-			DefaultLanguageHighlighterColors.KEYWORD);
+    public static final TextAttributesKey INI_SECTION = TextAttributesKey.createTextAttributesKey("INI.SECTION",
+        DefaultLanguageHighlighterColors.KEYWORD);
 
-	public static final TextAttributesKey INI_BRACKETS = TextAttributesKey.createTextAttributesKey("INI.BRACES",
-			DefaultLanguageHighlighterColors.KEYWORD);
+    public static final TextAttributesKey INI_BRACKETS = TextAttributesKey.createTextAttributesKey("INI.BRACES",
+        DefaultLanguageHighlighterColors.KEYWORD);
 
-	public static final TextAttributesKey INI_SECTION_SEPARATOR = TextAttributesKey.createTextAttributesKey("INI.SECTION_SEPARATOR",
-			DefaultLanguageHighlighterColors.KEYWORD);
+    public static final TextAttributesKey INI_SECTION_SEPARATOR = TextAttributesKey.createTextAttributesKey("INI.SECTION_SEPARATOR",
+        DefaultLanguageHighlighterColors.KEYWORD);
 
-	public static final TextAttributesKey INI_QUOTED_STRING = TextAttributesKey.createTextAttributesKey("INI.QUOTED_STRING",
-			DefaultLanguageHighlighterColors.STRING);
+    public static final TextAttributesKey INI_QUOTED_STRING = TextAttributesKey.createTextAttributesKey("INI.QUOTED_STRING",
+        DefaultLanguageHighlighterColors.STRING);
 
-	public static final TextAttributesKey INI_COMMENT = TextAttributesKey.createTextAttributesKey("INI.LINE_COMMENT",
-			DefaultLanguageHighlighterColors.LINE_COMMENT);
+    public static final TextAttributesKey INI_COMMENT = TextAttributesKey.createTextAttributesKey("INI.LINE_COMMENT",
+        DefaultLanguageHighlighterColors.LINE_COMMENT);
 
-	public static final TextAttributesKey INI_KEY_VALUE_SEPARATOR = TextAttributesKey.createTextAttributesKey("INI.KEY_VALUE_SEPARATOR",
-			DefaultLanguageHighlighterColors.OPERATION_SIGN);
+    public static final TextAttributesKey INI_KEY_VALUE_SEPARATOR = TextAttributesKey.createTextAttributesKey("INI.KEY_VALUE_SEPARATOR",
+        DefaultLanguageHighlighterColors.OPERATION_SIGN);
 
-	static
-	{
-		keys1 = new HashMap<IElementType, TextAttributesKey>();
+    static {
+        keys1 = new HashMap<>();
 
-		keys1.put(IniTokenTypes.VALUE_CHARACTERS, INI_VALUE);
-		keys1.put(IniTokenTypes.END_OF_LINE_COMMENT, INI_COMMENT);
-		keys1.put(IniTokenTypes.KEY_CHARACTERS, INI_KEY);
-		keys1.put(IniTokenTypes.SECTION, INI_SECTION);
-		keys1.put(IniTokenTypes.LBRACKET, INI_BRACKETS);
-		keys1.put(IniTokenTypes.RBRACKET, INI_BRACKETS);
-		keys1.put(IniTokenTypes.SECTION_SEPARATOR, INI_SECTION_SEPARATOR);
-		keys1.put(IniTokenTypes.KEY_VALUE_SEPARATOR, INI_KEY_VALUE_SEPARATOR);
-		keys1.put(IniTokenTypes.QUOTED_STRING, INI_QUOTED_STRING);
-	}
+        keys1.put(IniTokenTypes.VALUE_CHARACTERS, INI_VALUE);
+        keys1.put(IniTokenTypes.END_OF_LINE_COMMENT, INI_COMMENT);
+        keys1.put(IniTokenTypes.KEY_CHARACTERS, INI_KEY);
+        keys1.put(IniTokenTypes.SECTION, INI_SECTION);
+        keys1.put(IniTokenTypes.LBRACKET, INI_BRACKETS);
+        keys1.put(IniTokenTypes.RBRACKET, INI_BRACKETS);
+        keys1.put(IniTokenTypes.SECTION_SEPARATOR, INI_SECTION_SEPARATOR);
+        keys1.put(IniTokenTypes.KEY_VALUE_SEPARATOR, INI_KEY_VALUE_SEPARATOR);
+        keys1.put(IniTokenTypes.QUOTED_STRING, INI_QUOTED_STRING);
+    }
 
-	@Override
-	@Nonnull
-	public TextAttributesKey[] getTokenHighlights(IElementType tokenType)
-	{
-		return pack(keys1.get(tokenType));
-	}
+    @Override
+    @Nonnull
+    public TextAttributesKey[] getTokenHighlights(IElementType tokenType) {
+        return pack(keys1.get(tokenType));
+    }
 
-	public static final Map<TextAttributesKey, Pair<String, HighlightSeverity>> DISPLAY_NAMES = new HashMap<>();
+    public static final Map<TextAttributesKey, Pair<LocalizeValue, HighlightSeverity>> DISPLAY_NAMES = new HashMap<>();
 
-	static
-	{
-		DISPLAY_NAMES.put(INI_KEY, new Pair<String, HighlightSeverity>(IniBundle.message("options.ini.attribute.descriptor.property.key"), null));
-		DISPLAY_NAMES.put(INI_VALUE, new Pair<String, HighlightSeverity>(IniBundle.message("options.ini.attribute.descriptor.property.value"),
-				null));
-		DISPLAY_NAMES.put(INI_KEY_VALUE_SEPARATOR, new Pair<String, HighlightSeverity>(IniBundle.message("options.ini.attribute.descriptor.property"
-				+ ".separator"), null));
-		DISPLAY_NAMES.put(INI_COMMENT, new Pair<String, HighlightSeverity>(IniBundle.message("options.ini.attribute.descriptor.comment"), null));
-		DISPLAY_NAMES.put(INI_SECTION, new Pair<String, HighlightSeverity>(IniBundle.message("options.ini.attribute.descriptor.section"), null));
-		DISPLAY_NAMES.put(INI_BRACKETS, new Pair<String, HighlightSeverity>(IniBundle.message("options.ini.attribute.descriptor.section.brackets"),
-				null));
-		DISPLAY_NAMES.put(INI_SECTION_SEPARATOR, new Pair<String, HighlightSeverity>(IniBundle.message("options.ini.attribute.descriptor.section" +
-				".separator"), null));
-		DISPLAY_NAMES.put(INI_QUOTED_STRING, new Pair<String, HighlightSeverity>(IniBundle.message("options.ini.attribute.descriptor.quoted.string"), null));
-	}
+    static {
+        DISPLAY_NAMES.put(INI_KEY, new Pair<>(IniLocalize.optionsIniAttributeDescriptorPropertyKey(), null));
+        DISPLAY_NAMES.put(INI_VALUE, new Pair<>(IniLocalize.optionsIniAttributeDescriptorPropertyValue(), null));
+        DISPLAY_NAMES.put(INI_KEY_VALUE_SEPARATOR, new Pair<>(IniLocalize.optionsIniAttributeDescriptorPropertySeparator(), null));
+        DISPLAY_NAMES.put(INI_COMMENT, new Pair<>(IniLocalize.optionsIniAttributeDescriptorComment(), null));
+        DISPLAY_NAMES.put(INI_SECTION, new Pair<>(IniLocalize.optionsIniAttributeDescriptorSection(), null));
+        DISPLAY_NAMES.put(INI_BRACKETS, new Pair<>(IniLocalize.optionsIniAttributeDescriptorSectionBrackets(), null));
+        DISPLAY_NAMES.put(INI_SECTION_SEPARATOR, new Pair<>(IniLocalize.optionsIniAttributeDescriptorSectionSeparator(), null));
+        DISPLAY_NAMES.put(INI_QUOTED_STRING, new Pair<>(IniLocalize.optionsIniAttributeDescriptorQuotedString(), null));
+    }
 }

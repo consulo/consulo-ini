@@ -6,6 +6,7 @@ module consulo.ini {
     requires consulo.ide.api;
     
     exports consulo.ini;
+    exports consulo.ini.localize;
     exports consulo.ini.navigation.gotoSymbol;
     exports consulo.ini.presentation;
     exports org.gark87.intellij.lang.ini;

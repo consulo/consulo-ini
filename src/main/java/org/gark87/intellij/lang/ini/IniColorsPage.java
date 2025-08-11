@@ -19,74 +19,53 @@ package org.gark87.intellij.lang.ini;
 import consulo.annotation.component.ExtensionImpl;
 import consulo.colorScheme.TextAttributesKey;
 import consulo.colorScheme.setting.AttributesDescriptor;
-import consulo.colorScheme.setting.ColorDescriptor;
+import consulo.ini.localize.IniLocalize;
 import consulo.language.editor.colorScheme.setting.ColorSettingsPage;
 import consulo.language.editor.highlight.SyntaxHighlighter;
-
+import consulo.localize.LocalizeValue;
 import jakarta.annotation.Nonnull;
-import java.util.Map;
 
 /**
  * @author gark87 <arkady.galyash@gmail.com>
  */
 @ExtensionImpl
-public class IniColorsPage implements ColorSettingsPage
-{
-	private static final AttributesDescriptor[] ATTRS;
+public class IniColorsPage implements ColorSettingsPage {
+    private static final AttributesDescriptor[] ATTRS;
 
-	static
-	{
-		ATTRS = new AttributesDescriptor[IniHighlighter.DISPLAY_NAMES.size()];
-		TextAttributesKey[] keys = IniHighlighter.DISPLAY_NAMES.keySet().toArray(new TextAttributesKey[IniHighlighter.DISPLAY_NAMES.keySet().size()]);
-		for(int i = 0; i < keys.length; i++)
-		{
-			TextAttributesKey key = keys[i];
-			String name = IniHighlighter.DISPLAY_NAMES.get(key).getFirst();
-			ATTRS[i] = new AttributesDescriptor(name, key);
-		}
-	}
+    static {
+        ATTRS = new AttributesDescriptor[IniHighlighter.DISPLAY_NAMES.size()];
+        TextAttributesKey[] keys = IniHighlighter.DISPLAY_NAMES.keySet().toArray(new TextAttributesKey[IniHighlighter.DISPLAY_NAMES.keySet().size()]);
+        for (int i = 0; i < keys.length; i++) {
+            TextAttributesKey key = keys[i];
+            LocalizeValue name = IniHighlighter.DISPLAY_NAMES.get(key).getFirst();
+            ATTRS[i] = new AttributesDescriptor(name, key);
+        }
+    }
 
 
-	@Override
-	@Nonnull
-	public String getDisplayName()
-	{
-		return "Ini";
-	}
+    @Override
+    @Nonnull
+    public LocalizeValue getDisplayName() {
+        return IniLocalize.ini();
+    }
 
-	@Override
-	@Nonnull
-	public AttributesDescriptor[] getAttributeDescriptors()
-	{
-		return ATTRS;
-	}
+    @Override
+    @Nonnull
+    public AttributesDescriptor[] getAttributeDescriptors() {
+        return ATTRS;
+    }
 
-	@Override
-	@Nonnull
-	public ColorDescriptor[] getColorDescriptors()
-	{
-		return ColorDescriptor.EMPTY_ARRAY;
-	}
+    @Override
+    @Nonnull
+    public SyntaxHighlighter getHighlighter() {
+        return new IniHighlighter();
+    }
 
-	@Override
-	@Nonnull
-	public SyntaxHighlighter getHighlighter()
-	{
-		return new IniHighlighter();
-	}
-
-	@Override
-	@Nonnull
-	public String getDemoText()
-	{
-		return "; Comment on keys and values\n" +
-				"[section : subsection ]\n" +
-				"key1  = value1 \"quoted string\"";
-	}
-
-	@Override
-	public Map<String, TextAttributesKey> getAdditionalHighlightingTagToDescriptorMap()
-	{
-		return null;
-	}
+    @Override
+    @Nonnull
+    public String getDemoText() {
+        return "; Comment on keys and values\n" +
+            "[section : subsection ]\n" +
+            "key1  = value1 \"quoted string\"";
+    }
 }
