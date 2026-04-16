@@ -4,6 +4,9 @@
  */
 module consulo.ini {
     requires consulo.ide.api;
+    requires consulo.language.editor.api;
+    requires consulo.language.impl;
+    requires consulo.navigation.api;
     
     exports consulo.ini;
     exports consulo.ini.localize;
