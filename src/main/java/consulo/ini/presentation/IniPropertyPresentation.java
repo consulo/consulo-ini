@@ -2,49 +2,40 @@ package consulo.ini.presentation;
 
 import consulo.annotation.access.RequiredReadAction;
 import consulo.language.icon.IconDescriptorUpdaters;
+import consulo.localize.LocalizeValue;
 import consulo.navigation.ItemPresentation;
-import consulo.navigation.ItemPresentationProvider;
 import consulo.ui.image.Image;
 import org.gark87.intellij.lang.ini.psi.IniProperty;
 import org.gark87.intellij.lang.ini.psi.IniSection;
-
-import jakarta.annotation.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * @author VISTALL
- * @since 31.07.2015
+ * @since 2015-07-31
  */
-public class IniPropertyPresentation implements ItemPresentation
-{
+public class IniPropertyPresentation implements ItemPresentation {
+    private IniProperty myItem;
 
-	private IniProperty myItem;
+    public IniPropertyPresentation(IniProperty item) {
+        myItem = item;
+    }
 
-	public IniPropertyPresentation(IniProperty item)
-	{
-		myItem = item;
-	}
+    @Override
+    @RequiredReadAction
+    public LocalizeValue getPresentableText() {
+        return LocalizeValue.ofNullable(myItem.getName());
+    }
 
-	@Nullable
-	@Override
-	@RequiredReadAction
-	public String getPresentableText()
-	{
-		return myItem.getName();
-	}
+    @Override
+    @RequiredReadAction
+    public @Nullable String getLocationString() {
+        IniSection section = myItem.getSection();
+        return section.getName();
+    }
 
-	@Nullable
-	@Override
-	@RequiredReadAction
-	public String getLocationString()
-	{
-		IniSection section = myItem.getSection();
-		return section.getName();
-	}
-
-	@Nullable
-	@Override
-	public Image getIcon()
-	{
-		return IconDescriptorUpdaters.getIcon(myItem, 0);
-	}
+    @Override
+    @RequiredReadAction
+    public @Nullable Image getIcon() {
+        return IconDescriptorUpdaters.getIcon(myItem, 0);
+    }
 }
